@@ -1,0 +1,13 @@
+<label th:for="*{fields['__${field.name}__'].value}" th:classappend="${field.required ? 'required' : ''}" >
+    <span th:text="#{${field.friendlyName}}"/><span th:substituteby="components/fieldTooltip" />
+</label>
+<div th:substituteby="components/fieldTranslation" />
+
+<div class="twelve indented-form-value">
+    <textarea class="autosize" style="width: 100%;"
+        th:disabled="${field.readOnly}"
+        th:field="*{fields['__${field.name}__'].value}"
+        th:placeholder="${field.hint}" />
+</div>
+
+<span class="error" th:errors="*{fields['__${field.name}__'].value}" />
