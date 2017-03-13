@@ -3,7 +3,7 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.mycompany-community</groupId>
+        <groupId>com.smarteshop.ecommerce</groupId>
         <artifactId>ecommerce-website</artifactId>
         <version>5.0</version>
     </parent>
@@ -35,12 +35,12 @@
     </build>
     <dependencies>
         <dependency>
-            <groupId>org.broadleafcommerce</groupId>
-            <artifactId>broadleaf-framework</artifactId>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>leaf-framework</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.broadleafcommerce</groupId>
-            <artifactId>broadleaf-profile</artifactId>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>leaf-profile</artifactId>
         </dependency>
         <dependency>
             <groupId>org.broadleafcommerce</groupId>
