@@ -403,7 +403,7 @@
 		<dependencies>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
-				<artifactId>core</artifactId>
+				<artifactId>web-core</artifactId>
 				<version>${project.version}</version>
 				<type>jar</type>
 				<scope>compile</scope>
@@ -504,16 +504,13 @@
 				<version>3.0.1</version>
 				<type>jar</type>
 				<scope>provided</scope>
-			</dependency>
-			
-			
-			
+			</dependency>			
 		</dependencies>
 	</dependencyManagement>
 	<modules>
-		<module>admin</module>
-		<module>core</module>
-		<module>site</module>
+		<module>web-admin</module>
+		<module>web-core</module>
+		<module>web-site</module>
 		<module>admin-platform</module>
 	</modules>
 </project>

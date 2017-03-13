@@ -7,9 +7,9 @@
 		<artifactId>ecommerce-website</artifactId>
 		<version>5.0</version>
 	</parent>
-	<artifactId>admin</artifactId>
+	<artifactId>web-admin</artifactId>
 	<packaging>war</packaging>
-	<name>admin</name>
+	<name>web-admin</name>
 	<description>Web Module For Customized Broadleaf Commerce Admin</description>
 	<properties>
 		<!-- httpsPort and httpPort are used by embeded jetty server. -->
@@ -72,7 +72,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>core</artifactId>
+			<artifactId>web-core</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>

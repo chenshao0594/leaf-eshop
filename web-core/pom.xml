@@ -7,8 +7,8 @@
         <artifactId>ecommerce-website</artifactId>
         <version>5.0</version>
     </parent>
-    <artifactId>core</artifactId>
-    <name>core</name>
+    <artifactId>web-core</artifactId>
+    <name>web-core</name>
     <description>Customizations And Extensions For Broadleaf Commerce Services And Entities</description>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
