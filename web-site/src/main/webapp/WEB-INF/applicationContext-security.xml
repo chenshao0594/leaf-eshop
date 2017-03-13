@@ -83,7 +83,7 @@
         <property name="userPropertyToUse" value="id" />
     </bean>
     
-    <bean id="blCsrfFilter" class="org.broadleafcommerce.common.security.handler.CsrfFilter" >
+    <bean id="blCsrfFilter" class="org.broadleafcommerce.common.security.handler.SecurityFilter" >
         <property name="excludedRequestPatterns">
             <list>
                 <value>/sample-checkout/**</value>

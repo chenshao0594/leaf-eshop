@@ -18,8 +18,8 @@
 			work with Broadleaf -->
 		<hsqldb.version>2.3.2</hsqldb.version>
 		<spring.instrument.version>4.1.9.RELEASE</spring.instrument.version>
-		<spring.version>4.1.9.RELEASE</spring.version>
-		<spring.security.version>3.2.9.RELEASE</spring.security.version>
+		<spring.version>4.3.7.RELEASE</spring.version>
+		<spring.security.version>4.2.2.RELEASE</spring.security.version>
 		<maven.source.plugin.version>2.4</maven.source.plugin.version>
 		<thymeleaf.version>2.1.4.RELEASE</thymeleaf.version>
 		<geb.version>0.10.0</geb.version>
@@ -27,7 +27,7 @@
 		<spock.spring.version>1.0-groovy-2.3</spock.spring.version>
 		<selenium.version>2.43.1</selenium.version>
 		<groovy.version>2.3.11</groovy.version>
-		
+
 		<webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
 		<tomcat.conf.dir.name>tomcat-server-conf</tomcat.conf.dir.name>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -1161,6 +1161,12 @@
 				<type>jar</type>
 				<scope>compile</scope>
 			</dependency>
+			<dependency>
+				<groupId>org.springframework.data</groupId>
+				<artifactId>spring-data-jpa</artifactId>
+				<version>1.11.1.RELEASE</version>
+			</dependency>
+
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-test</artifactId>
