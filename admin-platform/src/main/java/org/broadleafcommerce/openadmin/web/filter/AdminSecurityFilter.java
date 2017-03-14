@@ -31,7 +31,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.broadleafcommerce.common.exception.ServiceException;
-import org.broadleafcommerce.common.security.handler.SecurityFilter;
 import org.broadleafcommerce.common.security.service.StaleStateProtectionService;
 import org.broadleafcommerce.common.security.service.StaleStateServiceException;
 import org.springframework.security.core.context.SecurityContextHolder;

@@ -33,7 +33,7 @@
 	<sec:http pattern="/sendResetPassword" security="none" />
 
 	<!-- Set up Spring security for the application -->
-	<sec:http auto-config="false" authentication-manager-ref="blAdminAuthenticationManager"
+	<sec:http auto-config="true" authentication-manager-ref="blAdminAuthenticationManager"
 		entry-point-ref="adminAuthenticationEntryPoint" disable-url-rewriting="true">
 		<!-- All admin URLs will be secured with https -->
 		<sec:intercept-url pattern="/**" requires-channel="any" />
@@ -96,7 +96,7 @@
 		<property name="accessDecisionManager" ref="blAccessDecisionManager" />
 		<property name="authenticationManager" ref="blAdminAuthenticationManager" />
 		<property name="securityMetadataSource">
-			<sec:filter-security-metadata-source>
+			<sec:filter-security-metadata-source use-expressions="false">
 				<sec:intercept-url pattern="/**/*"
 					access="PERMISSION_OTHER_DEFAULT" />
 				<sec:intercept-url pattern="/*"
@@ -134,5 +134,4 @@
 	<sec:global-method-security
 		access-decision-manager-ref="blAccessDecisionManager"
 		secured-annotations="enabled" />
-
 </beans>
