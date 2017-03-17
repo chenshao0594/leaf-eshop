@@ -37,6 +37,7 @@
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>leaf-frw-common</artifactId>
+			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>

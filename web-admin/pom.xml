@@ -87,6 +87,10 @@
 			<artifactId>leaf-framework-web</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>leaf-frw-common</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 		</dependency>
