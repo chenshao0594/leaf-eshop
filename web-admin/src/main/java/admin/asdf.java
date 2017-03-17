@@ -1,12 +1,12 @@
 package admin;
 
-import org.broadleafcommerce.openadmin.server.util.MetadataOverrideNamespaceHandler;
+import org.broadleafcommerce.common.web.extensibility.MergeContextLoader;
 
 public class asdf {
 
 	public static void main(String[] args) {
 		
-		MetadataOverrideNamespaceHandler h = new MetadataOverrideNamespaceHandler();
+		MergeContextLoader  mc = new MergeContextLoader();
 	}
 
 }

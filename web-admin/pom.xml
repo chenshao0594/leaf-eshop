@@ -76,44 +76,15 @@
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>admin-platform</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.broadleafcommerce</groupId>
-			<artifactId>broadleaf-admin-module</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.broadleafcommerce</groupId>
-					<artifactId>
-            			broadleaf-open-admin-platform
-            		</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.broadleafcommerce</groupId>
-					<artifactId>broadleaf-framework</artifactId>
-				</exclusion>
-			</exclusions>
+			<artifactId>leaf-admin-module</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.broadleafcommerce</groupId>
-			<artifactId>broadleaf-contentmanagement-module</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.broadleafcommerce</groupId>
-					<artifactId>
-            			broadleaf-open-admin-platform
-            		</artifactId>
-				</exclusion>
-			</exclusions>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>leaf-contentmanagement-module</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>leaf-framework-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.broadleafcommerce</groupId>
-			<artifactId>broadleaf-common</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>

@@ -11,9 +11,6 @@
 	<url>http://www.blc-archetype.com</url>
 	<properties>
 		<blc.version>5.0.8-GA</blc.version>
-		<blc.menu.version>2.0.0-GA</blc.menu.version>
-		<broadleaf-sample-payment-gateway.version>2.0.0-GA</broadleaf-sample-payment-gateway.version>
-
 		<!-- WARNING: HSQLDB version 2.3.3 does not work, 2.3.2 is verified to 
 			work with Broadleaf -->
 		<hsqldb.version>2.3.2</hsqldb.version>
@@ -455,29 +452,47 @@
 			</dependency>
 			<!--Broadleaf libraries -->
 			<dependency>
-				<groupId>org.broadleafcommerce</groupId>
-				<artifactId>broadleaf-common</artifactId>
-				<version>${blc.version}</version>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>leaf-frw-common</artifactId>
+				<version>${project.version}</version>
 				<type>jar</type>
 				<scope>compile</scope>
 			</dependency>
 			<dependency>
-				<groupId>org.broadleafcommerce</groupId>
-				<artifactId>broadleaf-admin-module</artifactId>
-				<version>${blc.version}</version>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>leaf-admin-module</artifactId>
+				<version>${project.version}</version>
 				<type>jar</type>
 				<scope>compile</scope>
 			</dependency>
 			<dependency>
-				<groupId>org.broadleafcommerce</groupId>
-				<artifactId>broadleaf-contentmanagement-module</artifactId>
-				<version>${blc.version}</version>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>leaf-contentmanagement-module</artifactId>
+				<version>${project.version}</version>
 				<type>jar</type>
 				<scope>compile</scope>
 			</dependency>
-			<!-- <dependency> <groupId>org.broadleafcommerce</groupId> <artifactId>broadleaf-open-admin-platform</artifactId> 
-				<version>${blc.version}</version> <type>jar</type> <scope>compile</scope> 
-				</dependency> -->
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>leaf-open-admin-platform</artifactId>
+				<version>${project.version}</version>
+				<type>jar</type>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>leaf-menu</artifactId>
+				<version>${project.version}</version>
+				<type>jar</type>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>leaf-payment-gateway</artifactId>
+				<version>${project.version}</version>
+				<type>jar</type>
+				<scope>compile</scope>
+			</dependency>
 			<dependency>
 				<groupId>org.broadleafcommerce</groupId>
 				<artifactId>integration</artifactId>
@@ -485,22 +500,6 @@
 				<type>jar</type>
 				<classifier>tests</classifier>
 				<scope>test</scope>
-			</dependency>
-
-			<dependency>
-				<groupId>org.broadleafcommerce</groupId>
-				<artifactId>broadleaf-menu</artifactId>
-				<version>${blc.menu.version}</version>
-				<type>jar</type>
-				<scope>compile</scope>
-			</dependency>
-
-			<dependency>
-				<groupId>org.broadleafcommerce</groupId>
-				<artifactId>broadleaf-sample-payment-gateway</artifactId>
-				<version>${broadleaf-sample-payment-gateway.version}</version>
-				<type>jar</type>
-				<scope>compile</scope>
 			</dependency>
 
 			<dependency>
@@ -1451,8 +1450,14 @@
 			<dependency>
 				<groupId>com.google.guava</groupId>
 				<artifactId>guava</artifactId>
-				<version>12.0</version>
+				<version>20.0</version>
 			</dependency>
+			<dependency>
+				<groupId>com.google.collections</groupId>
+				<artifactId>google-collections</artifactId>
+				<version>1.0</version>
+			</dependency>
+
 			<dependency>
 				<groupId>de.jkeylockmanager</groupId>
 				<artifactId>jkeylockmanager</artifactId>
@@ -1474,13 +1479,49 @@
 				<artifactId>yuicompressor</artifactId>
 				<version>2.4.7</version>
 			</dependency>
+			<dependency>
+				<groupId>org.codehaus.jackson</groupId>
+				<artifactId>jackson-mapper-asl</artifactId>
+				<version>1.9.13</version>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-tools</artifactId>
+				<version>4.0.0-CR1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.thymeleaf</groupId>
+				<artifactId>thymeleaf-spring3</artifactId>
+				<version>2.1.5.RELEASE</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-databind</artifactId>
+				<version>2.8.0</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-core</artifactId>
+				<version>2.8.0</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-annotations</artifactId>
+				<version>2.8.0</version>
+			</dependency>
+
+
+
 		</dependencies>
 	</dependencyManagement>
 	<modules>
 		<module>web-admin</module>
 		<module>web-core</module>
 		<module>web-site</module>
-		<module>admin-platform</module>
 		<module>leaf-frw-core</module>
+		<module>leaf-frw-common</module>
+		<module>leaf-admin</module>
+		<module>leaf-menu</module>
+		<module>leaf-payment-gateway</module>
 	</modules>
 </project>
