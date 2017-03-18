@@ -49,8 +49,8 @@
 			<artifactId>mvel2</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.broadleafcommerce</groupId>
-			<artifactId>broadleaf-common</artifactId>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>leaf-frw-common</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
@@ -59,6 +59,12 @@
 		<dependency>
 			<groupId>org.broadleafcommerce</groupId>
 			<artifactId>broadleaf-contentmanagement-module</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.broadleafcommerce</groupId>
+					<artifactId>broadleaf-common</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>commons-codec</groupId>
@@ -87,6 +93,10 @@
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-envers</artifactId>
 		</dependency>
 	</dependencies>
 </project>

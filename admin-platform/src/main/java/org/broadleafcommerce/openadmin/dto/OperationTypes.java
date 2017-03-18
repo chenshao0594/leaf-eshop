@@ -17,9 +17,10 @@
  */
 package org.broadleafcommerce.openadmin.dto;
 
-import org.broadleafcommerce.common.presentation.client.OperationType;
 
 import java.io.Serializable;
+
+import org.broadleafcommerce.common.presentation.client.OperationType;
 
 /**
  * @author jfischer

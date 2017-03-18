@@ -34,6 +34,10 @@
         </plugins>
     </build>
     <dependencies>
+    <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>leaf-frw-common</artifactId>
+        </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>leaf-framework</artifactId>
