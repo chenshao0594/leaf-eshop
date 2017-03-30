@@ -46,7 +46,9 @@ import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Index;
+import org.hibernate.annotations.Parameter;
 import org.hibernate.annotations.Where;
 
 import java.util.ArrayList;
@@ -59,6 +61,7 @@ import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -96,6 +99,15 @@ public class CustomerImpl implements Customer, AdminMainEntity, Previewable, Cus
     private static final long serialVersionUID = 1L;
 
     @Id
+    @GeneratedValue(generator= "CustomerId")
+    @GenericGenerator(
+        name="CustomerId",
+        strategy="org.broadleafcommerce.common.persistence.IdOverrideTableGenerator",
+        parameters = {
+            @Parameter(name="segment_value", value="CustomerImpl"),
+            @Parameter(name="entity_name", value="org.broadleafcommerce.profile.core.domain.CustomerImpl")
+        }
+    )
     @Column(name = "CUSTOMER_ID")
     @AdminPresentation(friendlyName = "CustomerImpl_Customer_Id", visibility = VisibilityEnum.HIDDEN_ALL)
     protected Long id;

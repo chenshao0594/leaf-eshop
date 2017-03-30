@@ -9,7 +9,6 @@
     <artifactId>leaf-framework-web</artifactId>
     <name>BroadleafCommerce Framework Web</name>
     <description>BroadleafCommerce Framework Web</description>
-    <url>http://www.broadleafcommerce.org</url>
     <properties>
         <project.uri>${project.baseUri}/../../</project.uri>
     </properties>

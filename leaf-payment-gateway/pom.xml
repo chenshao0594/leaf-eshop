@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    	<parent>
+		<groupId>com.smarteshop.ecommerce</groupId>
+		<artifactId>ecommerce-website</artifactId>
+		<version>5.0</version>
+	</parent>
+
+    <artifactId>leaf-payment-gateway</artifactId>
+    <name>BroadleafCommerce Sample Payment Gateway</name>
+    <description>BroadleafCommerce Sample Payment Gateway</description>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.uri>${user.dir}</project.uri>
+        <attachSources>true</attachSources>
+    </properties>
+
+    <build>
+        <plugins>
+         <!-- 
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <configuration>
+                    <licenseName>blc_apache</licenseName>
+                </configuration>
+            </plugin>
+           <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+            </plugin> -->
+        </plugins>
+    </build>
+    <dependencies>
+       <!--  <dependency>
+            <groupId>org.broadleafcommerce</groupId>
+            <artifactId>broadleaf-third-party-integration-config</artifactId>
+            <version>default</version>
+            <scope>compile</scope>
+            <type>jar</type>
+            <optional>true</optional>
+        </dependency> -->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>leaf-frw-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+        </dependency>
+        <!-- Other -->
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+        </dependency>
+    </dependencies>
+</project>
