@@ -421,18 +421,34 @@
 			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
-				<artifactId>admin-platform</artifactId>
+				<artifactId>leaf-frw-common</artifactId>
 				<version>${project.version}</version>
 				<type>jar</type>
 				<scope>compile</scope>
 			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
-				<artifactId>leaf-frw-common</artifactId>
+				<artifactId>leaf-open-admin-platform</artifactId>
 				<version>${project.version}</version>
 				<type>jar</type>
 				<scope>compile</scope>
 			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>leaf-admin-module</artifactId>
+				<version>${project.version}</version>
+				<type>jar</type>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>leaf-contentmanagement-module</artifactId>
+				<version>${project.version}</version>
+				<type>jar</type>
+				<scope>compile</scope>
+			</dependency>
+
+
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>leaf-framework</artifactId>
@@ -465,20 +481,6 @@
 			<!-- <dependency> <groupId>org.broadleafcommerce</groupId> <artifactId>broadleaf-common</artifactId> 
 				<version>${blc.version}</version> <type>jar</type> <scope>compile</scope> 
 				</dependency> -->
-			<dependency>
-				<groupId>org.broadleafcommerce</groupId>
-				<artifactId>broadleaf-admin-module</artifactId>
-				<version>${blc.version}</version>
-				<type>jar</type>
-				<scope>compile</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.broadleafcommerce</groupId>
-				<artifactId>broadleaf-contentmanagement-module</artifactId>
-				<version>${blc.version}</version>
-				<type>jar</type>
-				<scope>compile</scope>
-			</dependency>
 			<!-- <dependency> <groupId>org.broadleafcommerce</groupId> <artifactId>broadleaf-open-admin-platform</artifactId> 
 				<version>${blc.version}</version> <type>jar</type> <scope>compile</scope> 
 				</dependency> -->
@@ -1532,7 +1534,9 @@
 		<module>web-admin</module>
 		<module>web-core</module>
 		<module>web-site</module>
-		<module>admin-platform</module>
+		<module>leaf-admin</module>
+<!-- 		<module>leaf-menu</module>
+ -->		
 		<module>leaf-frw-core</module>
 		<module>leaf-frw-common</module>
 	</modules>

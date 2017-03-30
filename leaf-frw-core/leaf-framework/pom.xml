@@ -57,12 +57,12 @@
 			<artifactId>leaf-profile</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.broadleafcommerce</groupId>
-			<artifactId>broadleaf-contentmanagement-module</artifactId>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>leaf-contentmanagement-module</artifactId>
 			<exclusions>
 				<exclusion>
-					<groupId>org.broadleafcommerce</groupId>
-					<artifactId>broadleaf-common</artifactId>
+					<groupId>${project.groupId}</groupId>
+					<artifactId>leaf-common</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>

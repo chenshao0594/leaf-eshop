@@ -76,36 +76,30 @@
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>admin-platform</artifactId>
+			<artifactId>leaf-open-admin-platform</artifactId>
 		</dependency>
-
 		<dependency>
-			<groupId>org.broadleafcommerce</groupId>
-			<artifactId>broadleaf-admin-module</artifactId>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>leaf-admin-module</artifactId>
 			<exclusions>
 				<exclusion>
-					<groupId>org.broadleafcommerce</groupId>
-					<artifactId>
-            			broadleaf-open-admin-platform
-            		</artifactId>
+					<groupId>${project.groupId}</groupId>
+					<artifactId>leaf-framework</artifactId>
 				</exclusion>
 				<exclusion>
-					<groupId>org.broadleafcommerce</groupId>
-					<artifactId>broadleaf-framework</artifactId>
+					<groupId>${project.groupId}</groupId>
+					<artifactId>leaf-open-admin-platform</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
 		<dependency>
-			<groupId>org.broadleafcommerce</groupId>
-			<artifactId>broadleaf-contentmanagement-module</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.broadleafcommerce</groupId>
-					<artifactId>
-            			broadleaf-open-admin-platform
-            		</artifactId>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>leaf-contentmanagement-module</artifactId>
+			<exclusions><exclusion>
+					<groupId>${project.groupId}</groupId>
+					<artifactId>leaf-open-admin-platform</artifactId>
 				</exclusion>
-			</exclusions>
+				</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
