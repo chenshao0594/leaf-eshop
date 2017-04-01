@@ -32,10 +32,9 @@ import javax.xml.bind.annotation.XmlRootElement;
  * API wrapper to wrap Customer Attributes.
  * @author Priyesh Patel
  * 
- * @deprecated - use {@link com.broadleafcommerce.core.rest.api.v2.wrapper.CustomerAttributeWrapper}
+ *  - use {@link com.broadleafcommerce.core.rest.api.v2.wrapper.CustomerAttributeWrapper}
  *
  */
-@Deprecated
 @XmlRootElement(name = "customerAttribute")
 @XmlAccessorType(value = XmlAccessType.FIELD)
 public class CustomerAttributeWrapper extends BaseWrapper implements

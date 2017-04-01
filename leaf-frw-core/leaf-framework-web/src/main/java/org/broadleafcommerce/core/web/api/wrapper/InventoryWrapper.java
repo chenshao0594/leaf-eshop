@@ -27,11 +27,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 
- * @deprecated - use {@link com.broadleafcommerce.core.rest.api.v2.wrapper.InventoryWrapper}
+ *  - use {@link com.broadleafcommerce.core.rest.api.v2.wrapper.InventoryWrapper}
  *
  */
 
-@Deprecated
 @XmlRootElement(name = "inventory")
 @XmlAccessorType(value = XmlAccessType.FIELD)
 public class InventoryWrapper extends BaseWrapper {

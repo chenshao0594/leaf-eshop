@@ -35,9 +35,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @deprecated - use {@link com.broadleafcommerce.web.api.v2.wrapper.AdjustmentWrapper}
  * Author: ppatel, bpolster
  * 
- * @deprecated - use {@link com.broadleafcommerce.core.rest.api.v2.wrapper.AdjustmentWrapper}
  */
-@Deprecated
 @XmlRootElement(name = "adjustment")
 @XmlAccessorType(value = XmlAccessType.FIELD)
 public class AdjustmentWrapper extends BaseWrapper implements APIWrapper<Adjustment> {

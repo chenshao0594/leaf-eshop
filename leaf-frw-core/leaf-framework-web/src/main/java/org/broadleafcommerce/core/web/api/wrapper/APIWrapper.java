@@ -30,9 +30,8 @@ import javax.servlet.http.HttpServletRequest;
  * interface.
  * @param <T>
  * 
- * @deprecated - use {@link com.broadleafcommerce.core.rest.api.v2.wrapper.APIWrapper}
+ *  - use {@link com.broadleafcommerce.core.rest.api.v2.wrapper.APIWrapper}
  */
-@Deprecated
 public interface APIWrapper<T> extends Serializable {
 
     public void wrapDetails(T model, HttpServletRequest request);

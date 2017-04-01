@@ -28,11 +28,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 
- * @deprecated - use {@link com.broadleafcommerce.core.rest.api.v2.wrapper.ErrorWrapper}
+ *  - use {@link com.broadleafcommerce.core.rest.api.v2.wrapper.ErrorWrapper}
  *
  */
 
-@Deprecated
+
 @XmlRootElement(name = "error")
 @XmlAccessorType(value = XmlAccessType.FIELD)
 public class ErrorWrapper extends BaseWrapper {

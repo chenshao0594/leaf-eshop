@@ -32,12 +32,11 @@ import javax.xml.bind.annotation.XmlElement;
  * JAXB wrapper for Dimension
  * <p/>
  * 
- * @deprecated - use {@link com.broadleafcommerce.core.rest.api.v2.wrapper.DimensionWrapper}
+ *  - use {@link com.broadleafcommerce.core.rest.api.v2.wrapper.DimensionWrapper}
  * 
  * User: Kelly Tisdell
  * Date: 4/10/12
  */
-@Deprecated
 public class DimensionWrapper extends BaseWrapper implements APIWrapper<Dimension>, APIUnwrapper<Dimension> {
 
     @XmlElement

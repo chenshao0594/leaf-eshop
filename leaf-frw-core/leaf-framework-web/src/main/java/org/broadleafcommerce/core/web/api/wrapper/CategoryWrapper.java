@@ -54,9 +54,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *  4. Set additional property values that you have added.  <br/>
  *  5. Set super properties to null if you do not want them serialized. (e.g. <code>super.name = null;</code>  <br/>
  *  
- *  @deprecated - use {@link com.broadleafcommerce.core.rest.api.v2.wrapper.CategoryWrapper}
+ *   - use {@link com.broadleafcommerce.core.rest.api.v2.wrapper.CategoryWrapper}
  */
-@Deprecated
 @XmlRootElement(name = "category")
 @XmlAccessorType(value = XmlAccessType.FIELD)
 public class CategoryWrapper extends BaseWrapper implements APIWrapper<Category> {

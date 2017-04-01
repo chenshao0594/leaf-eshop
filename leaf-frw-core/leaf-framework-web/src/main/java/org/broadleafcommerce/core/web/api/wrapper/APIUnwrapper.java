@@ -30,9 +30,8 @@ import javax.servlet.http.HttpServletRequest;
  * interface.
  * @param <T>
  * 
- * @deprecated - use {@link com.broadleafcommerce.core.rest.api.v2.wrapper.APIUnwrapper}
+ *  - use {@link com.broadleafcommerce.core.rest.api.v2.wrapper.APIUnwrapper}
  */
-@Deprecated
 public interface APIUnwrapper<T> {
     public T unwrap(HttpServletRequest request, ApplicationContext context);
 }

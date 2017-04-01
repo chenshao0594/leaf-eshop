@@ -42,9 +42,8 @@ import java.util.List;
  *
  * @author Phillip Verheyden (phillipuniverse)
  * 
- * @deprecated - use {@link com.broadleafcommerce.core.rest.api.BroadleafRestApiMvcConfiguration}
+ *  - use {@link com.broadleafcommerce.core.rest.api.BroadleafRestApiMvcConfiguration}
  */
-@Deprecated
 public class BroadleafRestApiMvcConfiguration extends WebMvcConfigurerAdapter {
 
     @Override

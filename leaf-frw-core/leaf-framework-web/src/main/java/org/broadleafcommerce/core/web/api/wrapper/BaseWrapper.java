@@ -34,10 +34,9 @@ import javax.xml.bind.annotation.XmlTransient;
 /**
  * Base class for APIWrapper implementations to inject the EntityConfiguration reference.
  * 
- * @deprecated - use {@link com.broadleafcommerce.core.rest.api.v2.wrapper.BaseWrapper}
+ *  - use {@link com.broadleafcommerce.core.rest.api.v2.wrapper.BaseWrapper}
  * 
  */
-@Deprecated
 public abstract class BaseWrapper implements ApplicationContextAware {
 
     @XmlTransient
