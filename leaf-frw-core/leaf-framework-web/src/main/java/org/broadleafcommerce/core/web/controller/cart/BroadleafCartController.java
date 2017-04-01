@@ -114,11 +114,6 @@ public class BroadleafCartController extends AbstractCartController {
         return isAjaxRequest(request) ? getCartView() : getCartPageRedirect();
     }
 
-    @Deprecated
-    public String add(HttpServletRequest request, HttpServletResponse response, Model model,
-                      AddToCartItem itemRequest) throws IOException, AddToCartException, PricingException  {
-        return add(request, response, model, (OrderItemRequestDTO) itemRequest);
-    }
 
     /**
      * Takes in an item request, adds the item to the customer's current cart, and returns.
@@ -155,11 +150,6 @@ public class BroadleafCartController extends AbstractCartController {
         return isAjaxRequest(request) ? getCartView() : getCartPageRedirect();
     }
 
-    @Deprecated
-    public String addWithPriceOverride(HttpServletRequest request, HttpServletResponse response, Model model,
-                                       AddToCartItem itemRequest) throws IOException, AddToCartException, PricingException {
-        return addWithPriceOverride(request, response, model, (OrderItemRequestDTO) itemRequest);
-    }
 
     /**
      * Takes in an item request and updates the quantity of that item in the cart. If the quantity
@@ -199,12 +189,6 @@ public class BroadleafCartController extends AbstractCartController {
         }
     }
 
-    @Deprecated
-    public String updateQuantity(HttpServletRequest request, HttpServletResponse response, Model model,
-                                 AddToCartItem itemRequest) throws IOException, UpdateCartException, PricingException, RemoveFromCartException {
-        return updateQuantity(request, response, model, (OrderItemRequestDTO) itemRequest);
-    }
-
     /**
      * Takes in an item request, updates the quantity of that item in the cart, and returns
      * 
@@ -241,11 +225,6 @@ public class BroadleafCartController extends AbstractCartController {
         }
     }
 
-    @Deprecated
-    public String remove(HttpServletRequest request, HttpServletResponse response, Model model,
-                         AddToCartItem itemRequest) throws IOException, PricingException, RemoveFromCartException {
-        return remove(request, response, model, (OrderItemRequestDTO) itemRequest);
-    }
 
     /**
      * Cancels the current cart and redirects to the homepage

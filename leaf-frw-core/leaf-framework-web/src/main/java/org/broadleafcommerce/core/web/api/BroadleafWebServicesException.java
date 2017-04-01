@@ -25,10 +25,9 @@ import java.util.Map;
  * The purpose of this is to allow REST endpoints to build an exception with 
  * @author Kelly Tisdell
  * 
- * @deprecated - use {@link com.broadleafcommerce.core.rest.api.exception.BroadleafWebServicesException}
+ *  - use {@link com.broadleafcommerce.core.rest.api.exception.BroadleafWebServicesException}
  *
  */
-@Deprecated
 public class BroadleafWebServicesException extends RuntimeException {
 
     private static final long serialVersionUID = 1L;

@@ -26,9 +26,8 @@
     <!-- Element processors -->
     <element-processor name="categories" class="org.broadleafcommerce.core.web.processor.CategoriesProcessor" />
     <element-processor name="form" class="org.broadleafcommerce.common.web.processor.FormProcessor" />
-    <element-processor name="googleanalytics" class="org.broadleafcommerce.core.web.processor.GoogleAnalyticsProcessor" />
+    <element-processor name="googleanalytics" class="org.broadleafcommerce.core.web.processor.GoogleUniversalAnalyticsProcessor" />
     <element-processor name="google_universal_analytics" class="org.broadleafcommerce.core.web.processor.GoogleUniversalAnalyticsProcessor" />
-    <element-processor name="head" class="org.broadleafcommerce.core.web.processor.HeadProcessor" />
     <element-processor name="named_order" class="org.broadleafcommerce.core.web.processor.NamedOrderProcessor" />
     <element-processor name="one_page_checkout" class="org.broadleafcommerce.core.web.processor.OnePageCheckoutProcessor" />
     <element-processor name="product_option_display" class="org.broadleafcommerce.core.web.processor.ProductOptionDisplayProcessor" />

@@ -46,12 +46,11 @@ import javax.servlet.http.HttpServletRequest;
  * the details of the endpoint.
  * <p/>
  * 
- * @deprecated - use {@link com.broadleafcommerce.web.api.v2.endpoint.checkout.CheckoutEndpoint}
+ * {@link com.broadleafcommerce.web.api.v2.endpoint.checkout.CheckoutEndpoint}
  * 
  * User: Kelly Tisdell
  * Date: 4/10/12
  */
-@Deprecated
 public abstract class CheckoutEndpoint extends BaseEndpoint {
 
     private static final Log LOG = LogFactory.getLog(CheckoutEndpoint.class);

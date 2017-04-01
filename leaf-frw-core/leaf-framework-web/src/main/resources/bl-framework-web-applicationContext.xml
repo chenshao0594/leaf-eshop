@@ -46,8 +46,7 @@
 
     <bean id="blAddSortLinkProcessor" class="org.broadleafcommerce.core.web.processor.AddSortLinkProcessor" />
     <bean id="blCategoriesProcessor" class="org.broadleafcommerce.core.web.processor.CategoriesProcessor" />
-    <bean id="blGoogleAnalyticsProcessor" class="org.broadleafcommerce.core.web.processor.GoogleAnalyticsProcessor" />
-    <bean id="blHeadProcessor" class="org.broadleafcommerce.core.web.processor.HeadProcessor" />
+    <bean id="blGoogleAnalyticsProcessor" class="org.broadleafcommerce.core.web.processor.GoogleUniversalAnalyticsProcessor" />
     <bean id="blNamedOrderProcessor" class="org.broadleafcommerce.core.web.processor.NamedOrderProcessor" />
     <bean id="blProductOptionDisplayProcessor" class="org.broadleafcommerce.core.web.processor.ProductOptionDisplayProcessor" />
     <bean id="blProductOptionValueProcessor" class="org.broadleafcommerce.core.web.processor.ProductOptionValueProcessor" />
@@ -73,7 +72,6 @@
                 <ref bean="blAddSortLinkProcessor" />
                 <ref bean="blCategoriesProcessor" />
                 <ref bean="blGoogleAnalyticsProcessor" />
-                <ref bean="blHeadProcessor" />
                 <ref bean="blNamedOrderProcessor" />
                 <ref bean="blPaginationPageLinkProcessor" />
                 <ref bean="blPaginationSizeLinkProcessor" />

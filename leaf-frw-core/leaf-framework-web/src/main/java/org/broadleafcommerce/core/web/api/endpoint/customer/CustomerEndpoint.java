@@ -31,9 +31,9 @@ import javax.annotation.Resource;
  * <p/>
  * User: Kelly Tisdell
  * Date: 4/10/12
- * @deprecated all Broadleaf endpoints have been moved to the API module as a separate jar. Use {@link com.broadleafcommerce.core.rest.api.v2.endpoint.CutomerEndpoint}
+ * all Broadleaf endpoints have been moved to the API module as a separate jar. Use {@link com.broadleafcommerce.core.rest.api.v2.endpoint.CutomerEndpoint}
  */
-@Deprecated
+
 public abstract class CustomerEndpoint extends BaseEndpoint {
 
     @Resource(name="blCustomerService")
