@@ -9,8 +9,8 @@
 	</parent>
 	<artifactId>leaf-frw-common</artifactId>
 	<packaging>jar</packaging>
-	<name>Admin Platform</name>
-	<description>BroadleafCommerce Open Admin Platform</description>
+	<name>framework common </name>
+	<description>framework common</description>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -40,16 +40,7 @@
 			<resource> <directory>src/main/java</directory> </resource> </resources> -->
 	</build>
 	<dependencies>
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>leaf-frw-common</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>javax.servlet</groupId>
-					<artifactId>servlet-api</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
+		
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
