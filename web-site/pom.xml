@@ -10,7 +10,7 @@
     <artifactId>web-site</artifactId>
     <packaging>war</packaging>
     <name>web-site</name>
-    <description>Web Module For Broadleaf Commerce Based ECommerce Site</description>
+    <description>ECommerce Site</description>
     <properties>
         <!-- httpsPort and httpPort are used by embedded Tomcat server.-->
         <httpsPort>8443</httpsPort> 

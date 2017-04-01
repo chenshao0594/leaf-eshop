@@ -15,7 +15,6 @@
             <ul th:if="${not #lists.isEmpty(menuItem.submenu)}" class="sub-menu">
                 <li th:each="submenuItem : ${menuItem.submenu}">
                     <a th:href="@{${submenuItem.url}}" th:utext="${submenuItem.label}"  class="sub-menu"></a>
-
                     <ul th:if="${not #lists.isEmpty(submenuItem.submenu)}" class="secondary-sub-menu">
                         <li th:each="submenuItem1 : ${submenuItem.submenu}">
                             <a th:href="@{${submenuItem1.url}}" th:utext="${submenuItem1.label}"></a>
