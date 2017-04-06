@@ -24,14 +24,12 @@ import org.springframework.validation.ValidationUtils;
 @Component("blUSCustomerAddressValidator")
 public class USCustomerAddressValidator extends CustomerAddressValidator {
 
-    @Override
-	@SuppressWarnings("rawtypes")
+    @SuppressWarnings("rawtypes")
     public boolean supports(Class clazz) {
         return clazz.equals(CustomerAddressValidator.class);
     }
 
-    @Override
-	public void validate(Object obj, Errors errors) {
+    public void validate(Object obj, Errors errors) {
         super.validate(obj, errors);
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "address.stateProvinceRegion", "state.required");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "address.postalCode", "postalCode.required");

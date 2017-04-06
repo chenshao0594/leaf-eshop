@@ -30,14 +30,12 @@ import org.springframework.validation.Validator;
 @Component("blCreditCardInfoFormValidator")
 public class CreditCardInfoFormValidator implements Validator {
 
-    @Override
-	@SuppressWarnings("rawtypes")
+    @SuppressWarnings("rawtypes")
     public boolean supports(Class clazz) {
         return clazz.equals(CreditCardInfoForm.class);
     }
 
-    @Override
-	public void validate(Object obj, Errors errors) {
+    public void validate(Object obj, Errors errors) {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "creditCardName", "creditCardName.required");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "creditCardNumber", "creditCardNumber.required");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "creditCardCvvCode", "creditCardCvvCode.required");

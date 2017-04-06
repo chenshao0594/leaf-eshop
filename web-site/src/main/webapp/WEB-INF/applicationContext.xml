@@ -185,46 +185,41 @@
         </property>
     </bean>    
     
-    <!-- This is an example of a custom dialect definition that uses a custom processor -->
-    <!-- The second bean registers the dialct to the blWebTemplateEngine -->
-    <!-- Note that the same thing could be done for the blEmailTemplateEngine -->
-    <!-- 
-    <bean id="myDialect" class="com.mycompany.common.web.dialect.MyDialect">
-        <property name="processors">
-          <set>
-            <bean class="com.mycompany.common.web.processor.MyProcessor" />
-          </set>
-        </property>     
-    </bean> 
-    <bean id="blWebTemplateEngine" class="org.thymeleaf.spring4.SpringTemplateEngine">
-        <property name="dialects">
+    <!-- This is an example of a custom dialect definition that uses a custom processor hooked up to the blWebTemplateEngine-->
+    <!-- Note that the same thing could be done for the blEmailTemplateEngine using the blEmailDialects -->
+    <bean id="siteWebDialects" class="org.springframework.beans.factory.config.SetFactoryBean">
+        <property name="sourceSet">
             <set>
-                <ref bean="myDialect" />
+                <bean class="nz.net.ultraq.thymeleaf.LayoutDialect" />
             </set>
         </property>
-    </bean> 
-    -->
+    </bean>
+    <bean class="org.broadleafcommerce.common.extensibility.context.merge.LateStageMergeBeanPostProcessor">
+        <property name="collectionRef" value="siteWebDialects" />
+        <property name="targetRef" value="blWebDialects" />
+    </bean>
     
     <!-- The following two beans are defined like this in Broadleaf Commerce. However, -->
     <!-- you may want to override the bean definitions by uncommenting these two beans -->
     <!-- to control whether or not templates are cacheable. This will generally be desireable -->
     <!-- in production environments, but likely not in development environments. -->
     <!-- 
-    <bean id="blWebTemplateResolver" class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
-        <property name="prefix" value="/WEB-INF/templates/" />
+    <bean id="blWebTemplateResolver" class="org.broadleafcommerce.presentation.resolver.BroadleafThemeAwareTemplateResolver">
+        <property name="prefix" value="/WEB-INF/" />
+        <property name="templateFolder" value="${theme.templates.folder}" />
         <property name="suffix" value=".html" />
-        <property name="templateMode" value="HTML5" />
         <property name="cacheable" value="${cache.page.templates}"/>
         <property name="cacheTTLMs" value="${cache.page.templates.ttl}" />
         <property name="characterEncoding" value="UTF-8" />
-    </bean> 
-    <bean id="blEmailTemplateResolver" class="org.thymeleaf.templateresolver.ClassLoaderTemplateResolver">
+        <property name="order" value="200"/>
+    </bean>
+    <bean id="blEmailClasspathTemplateResolver" class="org.broadleafcommerce.presentation.resolver.BroadleafClasspathTemplateResolver">
         <property name="prefix" value="emailTemplates/" />
         <property name="suffix" value=".html" />
-        <property name="templateMode" value="HTML5" />
         <property name="cacheable" value="${cache.page.templates}"/>
         <property name="cacheTTLMs" value="${cache.page.templates.ttl}" />
         <property name="characterEncoding" value="UTF-8" />
+        <property name="emailResolver" value="true" />
     </bean>
     -->
     

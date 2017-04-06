@@ -33,20 +33,17 @@ import java.io.IOException;
  */
 public abstract class AbstractDynamicSkuPricingFilter implements DynamicSkuPricingFilter {
 
-    @Override
-	public void destroy() {
+    public void destroy() {
         //do nothing
     }
 
-    @Override
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
         SkuPricingConsiderationContext.setSkuPricingConsiderationContext(getPricingConsiderations(request));
         SkuPricingConsiderationContext.setSkuPricingService(getDynamicSkuPricingService(request));
         filterChain.doFilter(request, response);
     }
 
-    @Override
-	public void init(FilterConfig config) throws ServletException {
+    public void init(FilterConfig config) throws ServletException {
         //do nothing
     }
 

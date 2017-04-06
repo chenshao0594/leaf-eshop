@@ -49,8 +49,7 @@ public class SpringTemporaryRedirectOverrideFilter implements Filter {
     /* (non-Javadoc)
      * @see javax.servlet.Filter#destroy()
      */
-    @Override
-	public void destroy() {
+    public void destroy() {
         //do nothing
     }
     
@@ -67,8 +66,7 @@ public class SpringTemporaryRedirectOverrideFilter implements Filter {
     /* (non-Javadoc)
      * @see javax.servlet.Filter#doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse, javax.servlet.FilterChain)
      */
-    @Override
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         BroadleafResponseWrapper responseWrapper = new BroadleafResponseWrapper((HttpServletResponse) response);
         chain.doFilter(request, responseWrapper);
         if ( 
@@ -83,8 +81,7 @@ public class SpringTemporaryRedirectOverrideFilter implements Filter {
     /* (non-Javadoc)
      * @see javax.servlet.Filter#init(javax.servlet.FilterConfig)
      */
-    @Override
-	public void init(FilterConfig config) throws ServletException {
+    public void init(FilterConfig config) throws ServletException {
         String massagedString = config.getInitParameter("urlPatterns").replaceAll("\\s+", " ");
         String[] temp = massagedString.split("\\s");
         urlPatterns = new Pattern[temp.length];

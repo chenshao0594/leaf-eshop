@@ -47,8 +47,7 @@ public class OrderStateAOP implements ApplicationContextAware {
         return returnValue;
     }
 
-    @Override
-	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
     }
 }

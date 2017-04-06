@@ -25,14 +25,12 @@ import org.springframework.validation.ValidationUtils;
 @Component("blUSBillingInfoFormValidator")
 public class USBillingInfoFormValidator extends BillingInfoFormValidator {
 
-    @Override
-	@SuppressWarnings("rawtypes")
+    @SuppressWarnings("rawtypes")
     public boolean supports(Class clazz) {
         return clazz.equals(BillingInfoForm.class);
     }
 
-    @Override
-	public void validate(Object obj, Errors errors) {
+    public void validate(Object obj, Errors errors) {
         super.validate(obj, errors);
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "address.stateProvinceRegion", "state.required");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "address.postalCode", "postalCode.required");

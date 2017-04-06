@@ -316,7 +316,9 @@ public class OrderImpl implements Order, AdminMainEntity, CurrencyCodeIdentifiab
     public Money calculateSubTotal() {
         Money calculatedSubTotal = BroadleafCurrencyUtils.getMoney(getCurrency());
         for (OrderItem orderItem : orderItems) {
-            calculatedSubTotal = calculatedSubTotal.add(orderItem.getTotalPrice());
+            if (orderItem.getParentOrderItem() == null) {
+                calculatedSubTotal = calculatedSubTotal.add(orderItem.getTotalPrice());
+            }
         }
         return calculatedSubTotal;
     }
@@ -703,7 +705,9 @@ public class OrderImpl implements Order, AdminMainEntity, CurrencyCodeIdentifiab
     public int getItemCount() {
         int count = 0;
         for (DiscreteOrderItem doi : getDiscreteOrderItems()) {
-            count += doi.getQuantity();
+            if (doi.getParentOrderItem() == null) {
+                count += doi.getQuantity();
+            }
         }
         for (OrderItem oi : getNonDiscreteOrderItems()) {
             count += oi.getQuantity();

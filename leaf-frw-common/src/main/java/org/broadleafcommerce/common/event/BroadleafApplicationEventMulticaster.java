@@ -60,9 +60,9 @@ public class BroadleafApplicationEventMulticaster extends
      * concern.
      */
 	@Override
-	public void multicastEvent(final ApplicationEvent event) {	
+	public void multicastEvent(final ApplicationEvent event) {
         Executor executor = getTaskExecutor();
-        // Shane.chen  getApplicationListeners(event, null)
+        //shane.chen
         for (final ApplicationListener<?> listener : getApplicationListeners(event, null)) {
 			boolean isAsynchronous = false;
 			if (executor != null) {

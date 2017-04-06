@@ -216,20 +216,20 @@ public class BroadleafRequestContext {
      * @deprecated this has been changed to {@link #getNonPersistentSite()} to explicitly indicate that the site
      * being returned is not attached to a Hibernate session
      */
-//    @Deprecated
-//    public Site getSite() {
-//        return getNonPersistentSite();
-//    }
+    @Deprecated
+    public Site getSite() {
+        return getNonPersistentSite();
+    }
 
     /**
      * @deprecated this has been changed to {@link #setNonPersistentSite()} to explicitly indicate that the site being set
      * is not attached to an active Hibernate session
      */
-//    @Deprecated
-//    public void setSite(Site site) {
-//        setNonPersistentSite(site);
-//    }
-//    
+    @Deprecated
+    public void setSite(Site site) {
+        setNonPersistentSite(site);
+    }
+    
     /**
      * @return the site that is currently associated to this request thread. The site that is returned is not attached to a
      * Hibernate session and thus cannot lazy-load collection properties. For additional collections that are added to

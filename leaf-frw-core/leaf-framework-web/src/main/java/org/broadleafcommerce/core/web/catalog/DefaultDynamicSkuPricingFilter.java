@@ -42,16 +42,14 @@ public class DefaultDynamicSkuPricingFilter extends AbstractDynamicSkuPricingFil
     @Resource(name="blCustomerState")
     protected CustomerState customerState;
 
-    @Override
-	public DynamicSkuPricingService getDynamicSkuPricingService(ServletRequest request) {
+    public DynamicSkuPricingService getDynamicSkuPricingService(ServletRequest request) {
         return skuPricingService;
     }
 
-    @Override
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     public HashMap getPricingConsiderations(ServletRequest request) {
         HashMap pricingConsiderations = new HashMap();
-        Customer customer = CustomerState.getCustomer((HttpServletRequest)  request);
+        Customer customer = customerState.getCustomer((HttpServletRequest)  request);
         pricingConsiderations.put("customer", customer);
         
         return pricingConsiderations;

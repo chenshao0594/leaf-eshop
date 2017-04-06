@@ -16,11 +16,11 @@
     <context-param>
         <param-name>patchConfigLocation</param-name>
         <param-value>
-            classpath*:/bl-open-admin-contentClient-applicationContext.xml
-            classpath*:/bl-open-admin-contentCreator-applicationContext.xml
+            classpath:/bl-open-admin-contentClient-applicationContext.xml
+            classpath:/bl-open-admin-contentCreator-applicationContext.xml
             classpath*:/bl-admin-applicationContext.xml
-            classpath*:/bl-cms-contentClient-applicationContext.xml
-            classpath*:/bl-cms-contentCreator-applicationContext.xml
+            classpath:/bl-cms-contentClient-applicationContext.xml
+            classpath:/bl-cms-contentCreator-applicationContext.xml
             classpath*:/blc-config/admin/bl-*-applicationContext.xml
             classpath:/applicationContext.xml
             classpath:/applicationContext-email.xml
@@ -98,7 +98,7 @@
             <param-name>contextConfigLocation</param-name>
             <param-value>
                 classpath:/applicationContext-servlet-open-admin.xml
-                classpath*:/applicationContext-servlet-admin.xml
+                classpath:/applicationContext-servlet-admin.xml
                 classpath:/applicationContext-servlet-cms-contentClient.xml
                 classpath:/applicationContext-servlet-cms-contentCreator.xml
                 classpath:/bl-menu-admin-applicationContext-servlet.xml

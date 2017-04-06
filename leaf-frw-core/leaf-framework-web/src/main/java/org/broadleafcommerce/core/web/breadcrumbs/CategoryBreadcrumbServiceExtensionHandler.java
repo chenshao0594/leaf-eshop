@@ -58,8 +58,7 @@ public class CategoryBreadcrumbServiceExtensionHandler extends AbstractBreadcrum
         }
     }
 
-    @Override
-	public ExtensionResultStatusType modifyBreadcrumbList(String url, Map<String, String[]> params,
+    public ExtensionResultStatusType modifyBreadcrumbList(String url, Map<String, String[]> params,
             ExtensionResultHolder<List<BreadcrumbDTO>> holder) {
 
         // ProductBreadcrumb Handler strips off the productId and last fragment  

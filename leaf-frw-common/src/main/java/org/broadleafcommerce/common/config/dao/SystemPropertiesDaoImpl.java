@@ -172,8 +172,8 @@ public class SystemPropertiesDaoImpl extends AbstractCacheMissAware implements S
         String site = "";
         BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
         if (brc != null) {
-            if (brc.getNonPersistentSite() != null) {
-                site = String.valueOf(brc.getNonPersistentSite().getId());
+            if (brc.getSite() != null) {
+                site = String.valueOf(brc.getSite().getId());
             }
         }
         return site;

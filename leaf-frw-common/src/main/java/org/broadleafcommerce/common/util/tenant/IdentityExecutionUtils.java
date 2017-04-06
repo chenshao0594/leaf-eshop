@@ -53,7 +53,7 @@ public class IdentityExecutionUtils {
         IdentityUtilContext.setUtilContext(context);
 
         BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
-        Site previousSite = brc.getNonPersistentSite();
+        Site previousSite = brc.getSite();
         Catalog previousCatalog = brc.getCurrentCatalog();
         Site previousProfile = brc.getCurrentProfile();
         
@@ -80,7 +80,7 @@ public class IdentityExecutionUtils {
             if (isNew) {
                 BroadleafRequestContext.setBroadleafRequestContext(null);
             }
-            BroadleafRequestContext.getBroadleafRequestContext().setNonPersistentSite(previousSite);
+            BroadleafRequestContext.getBroadleafRequestContext().setSite(previousSite);
             BroadleafRequestContext.getBroadleafRequestContext().setCurrentCatalog(previousCatalog);
             BroadleafRequestContext.getBroadleafRequestContext().setCurrentProfile(previousProfile);
         }
@@ -109,7 +109,7 @@ public class IdentityExecutionUtils {
     public static <T, G extends Throwable> T runOperationAndIgnoreIdentifier(IdentityOperation<T, G> operation, 
             PlatformTransactionManager transactionManager) throws G {
         BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
-        Site previousSite = brc.getNonPersistentSite();
+        Site previousSite = brc.getSite();
         Catalog previousCatalog = brc.getCurrentCatalog();
         Site previousProfile = brc.getCurrentProfile();
     
@@ -138,7 +138,7 @@ public class IdentityExecutionUtils {
                 BroadleafRequestContext.setBroadleafRequestContext(null);
             }
             BroadleafRequestContext.getBroadleafRequestContext().setIgnoreSite(isIgnoringSite);
-            BroadleafRequestContext.getBroadleafRequestContext().setNonPersistentSite(previousSite);
+            BroadleafRequestContext.getBroadleafRequestContext().setSite(previousSite);
             BroadleafRequestContext.getBroadleafRequestContext().setCurrentCatalog(previousCatalog);
             BroadleafRequestContext.getBroadleafRequestContext().setCurrentProfile(previousProfile);
         }
@@ -154,7 +154,7 @@ public class IdentityExecutionUtils {
             isNew = true;
         }
 
-        requestContext.setNonPersistentSite(site);
+        requestContext.setSite(site);
         requestContext.setCurrentCatalog(catalog);
         requestContext.setCurrentProfile(profile);
         

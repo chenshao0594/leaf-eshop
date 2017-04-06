@@ -48,9 +48,7 @@ public class EnhancedTokenBasedRememberMeServices extends TokenBasedRememberMeSe
     @Resource(name="blCookieUtils")
     protected CookieUtils cookieUtils;
 
-   /* @Deprecated  Shane.chen
-    public EnhancedTokenBasedRememberMeServices() {}
-    */
+    
     public EnhancedTokenBasedRememberMeServices(String key, UserDetailsService userDetailsService) {
         super(key, userDetailsService);
     }

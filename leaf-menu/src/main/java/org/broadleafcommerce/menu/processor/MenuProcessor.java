@@ -15,15 +15,18 @@
  * between you and Broadleaf Commerce. You may not use this file except in compliance with the applicable license.
  * #L%
  */
+
 package org.broadleafcommerce.menu.processor;
 
-import org.broadleafcommerce.common.web.dialect.AbstractModelVariableModifierProcessor;
 import org.broadleafcommerce.menu.domain.Menu;
 import org.broadleafcommerce.menu.service.MenuService;
+import org.broadleafcommerce.presentation.condition.ConditionalOnTemplating;
+import org.broadleafcommerce.presentation.dialect.AbstractBroadleafVariableModifierProcessor;
+import org.broadleafcommerce.presentation.model.BroadleafTemplateContext;
 import org.springframework.stereotype.Component;
-import org.thymeleaf.Arguments;
-import org.thymeleaf.dom.Element;
 
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -37,7 +40,8 @@ import javax.annotation.Resource;
  * @author bpolster
  */
 @Component("blMenuProcessor")
-public class MenuProcessor extends AbstractModelVariableModifierProcessor {
+@ConditionalOnTemplating
+public class MenuProcessor extends AbstractBroadleafVariableModifierProcessor {
 
     @Resource(name = "blMenuService")
     protected MenuService menuService;
@@ -45,23 +49,21 @@ public class MenuProcessor extends AbstractModelVariableModifierProcessor {
     @Resource(name = "blMenuProcessorExtensionManager")
     protected MenuProcessorExtensionManager extensionManager;
 
-    /**
-     * Sets the name of this processor to be used in Thymeleaf template
-     */
-    public MenuProcessor() {
-        super("menu");
+    @Override
+    public String getName() {
+        return "menu";
     }
-
+    
     @Override
     public int getPrecedence() {
         return 1000;
     }
 
     @Override
-    protected void modifyModelAttributes(Arguments arguments, Element element) {
-        String resultVar = element.getAttributeValue("resultVar");
-        String menuName = element.getAttributeValue("menuName");
-        String menuId = element.getAttributeValue("menuId");
+    public Map<String, Object> populateModelVariables(String tagName, Map<String, String> tagAttributes, BroadleafTemplateContext context) {
+        String resultVar = tagAttributes.get("resultVar");
+        String menuName = tagAttributes.get("menuName");
+        String menuId = tagAttributes.get("menuId");
 
         final Menu menu;
 
@@ -71,10 +73,11 @@ public class MenuProcessor extends AbstractModelVariableModifierProcessor {
             menu = menuService.findMenuByName(menuName);
         }
 
+        Map<String, Object> newModelVars = new HashMap<>();
         if (menu != null) {
-            addToModel(arguments, resultVar, menuService.constructMenuItemDTOsForMenu(menu));
-            extensionManager.getProxy().addAdditionalFieldsToModel(arguments, element);
+            newModelVars.put(resultVar, menuService.constructMenuItemDTOsForMenu(menu));
+            extensionManager.getProxy().addAdditionalFieldsToModel(tagName, tagAttributes, newModelVars, context);
         }
-
+        return newModelVars;
     }
 }

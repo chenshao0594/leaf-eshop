@@ -28,14 +28,12 @@ import org.springframework.validation.Validator;
 @Component("blShippingInfoFormValidator")
 public class ShippingInfoFormValidator extends BroadleafCommonAddressValidator implements Validator {
 
-    @Override
-	@SuppressWarnings("rawtypes")
+    @SuppressWarnings("rawtypes")
     public boolean supports(Class clazz) {
         return clazz.equals(ShippingInfoForm.class);
     }
 
-    @Override
-	public void validate(Object obj, Errors errors) {
+    public void validate(Object obj, Errors errors) {
         ShippingInfoForm shippingInfoForm = (ShippingInfoForm) obj;
         super.validate(BroadleafFormType.SHIPPING_FORM, shippingInfoForm.getAddress(), errors);
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "fulfillmentOptionId", "fulfillmentOptionId.required");

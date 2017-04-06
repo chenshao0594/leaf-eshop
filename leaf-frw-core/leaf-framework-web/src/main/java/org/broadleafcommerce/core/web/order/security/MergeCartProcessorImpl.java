@@ -30,7 +30,6 @@ import org.broadleafcommerce.profile.core.service.CustomerService;
 import org.broadleafcommerce.profile.web.core.security.CustomerStateRequestProcessor;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.context.request.WebRequest;
 
@@ -85,7 +84,7 @@ public class MergeCartProcessorImpl implements MergeCartProcessor {
         }
 
         if (BLCRequestUtils.isOKtoUseSession(request)) {
-            request.setAttribute(mergeCartResponseKey, mergeCartResponse, RequestAttributes.SCOPE_GLOBAL_SESSION);
+            request.setAttribute(mergeCartResponseKey, mergeCartResponse, WebRequest.SCOPE_GLOBAL_SESSION);
         }
     }
 

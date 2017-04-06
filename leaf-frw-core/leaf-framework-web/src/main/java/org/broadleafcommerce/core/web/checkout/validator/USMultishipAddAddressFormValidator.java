@@ -25,14 +25,12 @@ import org.springframework.validation.ValidationUtils;
 @Component("blUSSMultishipAddAddressFormValidator")
 public class USMultishipAddAddressFormValidator extends MultishipAddAddressFormValidator {
 
-    @Override
-	@SuppressWarnings("rawtypes")
+    @SuppressWarnings("rawtypes")
     public boolean supports(Class clazz) {
         return clazz.equals(ShippingInfoForm.class);
     }
 
-    @Override
-	public void validate(Object obj, Errors errors) {
+    public void validate(Object obj, Errors errors) {
         super.validate(obj, errors);
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "address.stateProvinceRegion", "state.required");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "address.postalCode", "postalCode.required");

@@ -52,8 +52,7 @@ public class ProductBreadcrumbServiceExtensionHandler extends AbstractBreadcrumb
         }
     }
 
-    @Override
-	public ExtensionResultStatusType modifyBreadcrumbList(String url, Map<String, String[]> params,
+    public ExtensionResultStatusType modifyBreadcrumbList(String url, Map<String, String[]> params,
             ExtensionResultHolder<List<BreadcrumbDTO>> holder) {
         Product product = determineProduct(url, params, holder);
 

@@ -33,8 +33,7 @@ public class AuthSuccessHandlerExtensionManager extends ExtensionManager<AuthSuc
         super(AuthSuccessHandlerExtensionHandler.class);
     }
 
-    @Override
-	public boolean continueOnHandled() {
+    public boolean continueOnHandled() {
         return true;
     }
 

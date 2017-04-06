@@ -38,7 +38,6 @@ import org.broadleafcommerce.profile.web.core.security.CustomerStateRequestProce
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.context.request.WebRequest;
 
@@ -133,11 +132,11 @@ public class CartStateRequestProcessor extends AbstractBroadleafWebRequestProces
             }
         }
 
-        request.setAttribute(cartRequestAttributeName, cart, RequestAttributes.SCOPE_REQUEST);
+        request.setAttribute(cartRequestAttributeName, cart, WebRequest.SCOPE_REQUEST);
 
         // Setup cart for content rule processing
         @SuppressWarnings("unchecked")
-        Map<String, Object> ruleMap = (Map<String, Object>) request.getAttribute(BLC_RULE_MAP_PARAM, RequestAttributes.SCOPE_REQUEST);
+        Map<String, Object> ruleMap = (Map<String, Object>) request.getAttribute(BLC_RULE_MAP_PARAM, WebRequest.SCOPE_REQUEST);
         if (ruleMap == null) {
             ruleMap = new HashMap<String, Object>();
         }
@@ -146,14 +145,14 @@ public class CartStateRequestProcessor extends AbstractBroadleafWebRequestProces
         // Leaving the following line in for backwards compatibility, but all rules should use order as the 
         // variable name.
         ruleMap.put("cart", cart);
-        request.setAttribute(BLC_RULE_MAP_PARAM, ruleMap, RequestAttributes.SCOPE_REQUEST);
+        request.setAttribute(BLC_RULE_MAP_PARAM, ruleMap, WebRequest.SCOPE_REQUEST);
 
     }
     
     public Order getOverrideCart(WebRequest request) {
         Long orderId = null;
         if (BLCRequestUtils.isOKtoUseSession(request)) {
-            orderId = (Long) request.getAttribute(OVERRIDE_CART_ATTR_NAME, RequestAttributes.SCOPE_GLOBAL_SESSION);
+            orderId = (Long) request.getAttribute(OVERRIDE_CART_ATTR_NAME, WebRequest.SCOPE_GLOBAL_SESSION);
         }
         Order cart = null;
         if (orderId != null) {
@@ -202,11 +201,11 @@ public class CartStateRequestProcessor extends AbstractBroadleafWebRequestProces
         if (BLCRequestUtils.isOKtoUseSession(request)) {
             // The anonymous customer from session is no longer needed; it can be safely removed
             request.removeAttribute(CustomerStateRequestProcessor.getAnonymousCustomerSessionAttributeName(),
-                    RequestAttributes.SCOPE_GLOBAL_SESSION);
+                    WebRequest.SCOPE_GLOBAL_SESSION);
             request.removeAttribute(CustomerStateRequestProcessor.getAnonymousCustomerIdSessionAttributeName(),
-                    RequestAttributes.SCOPE_GLOBAL_SESSION);
+                    WebRequest.SCOPE_GLOBAL_SESSION);
 
-            request.setAttribute(mergeCartResponseKey, mergeCartResponse, RequestAttributes.SCOPE_GLOBAL_SESSION);
+            request.setAttribute(mergeCartResponseKey, mergeCartResponse, WebRequest.SCOPE_GLOBAL_SESSION);
         }
         return mergeCartResponse.getOrder();
     }

@@ -75,8 +75,7 @@ public class i18nUpdateCartServiceExtensionHandler extends AbstractUpdateCartSer
      * @param resultHolder
      * @return
      */
-    @Override
-	public ExtensionResultStatusType updateAndValidateCart(Order cart, ExtensionResultHolder resultHolder) {
+    public ExtensionResultStatusType updateAndValidateCart(Order cart, ExtensionResultHolder resultHolder) {
         if (BroadleafRequestContext.hasLocale()) {
             BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
             if (!brc.getLocale().getLocaleCode().matches(cart.getLocale().getLocaleCode())) {

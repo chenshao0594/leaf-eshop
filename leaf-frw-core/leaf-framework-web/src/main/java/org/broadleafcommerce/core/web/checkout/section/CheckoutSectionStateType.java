@@ -52,13 +52,11 @@ public class CheckoutSectionStateType implements Serializable, BroadleafEnumerat
         setType(type);
     }
 
-    @Override
-	public String getType() {
+    public String getType() {
         return type;
     }
 
-    @Override
-	public String getFriendlyType() {
+    public String getFriendlyType() {
         return friendlyType;
     }
 

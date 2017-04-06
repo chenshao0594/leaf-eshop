@@ -27,14 +27,12 @@ import org.springframework.validation.Validator;
 @Component("blCheckoutFormValidator")
 public class CheckoutFormValidator implements Validator {
 
-    @Override
-	@SuppressWarnings("rawtypes")
+    @SuppressWarnings("rawtypes")
     public boolean supports(Class clazz) {
         return clazz.equals(CheckoutForm.class);
     }
 
-    @Override
-	public void validate(Object obj, Errors errors) {
+    public void validate(Object obj, Errors errors) {
         CheckoutForm checkoutForm = (CheckoutForm) obj;
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "billingAddress.addressLine1", "addressLine1.required");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "billingAddress.phonePrimary", "phone.required");

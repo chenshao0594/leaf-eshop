@@ -206,14 +206,14 @@ public class MultiTenantCopyContext {
     protected void tearDownContext(BroadleafRequestContext context) {
         context.setCurrentCatalog(getFromCatalog());
         context.setCurrentProfile(getFromSite());
-        context.setNonPersistentSite(getFromSite());
+        context.setSite(getFromSite());
     }
 
     protected BroadleafRequestContext setupContext() {
         BroadleafRequestContext context = BroadleafRequestContext.getBroadleafRequestContext();
         context.setCurrentCatalog(getToCatalog());
         context.setCurrentProfile(getToSite());
-        context.setNonPersistentSite(getToSite());
+        context.setSite(getToSite());
         return context;
     }
 

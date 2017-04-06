@@ -93,8 +93,7 @@ public class DependencyLicenseCopy extends Copy {
     }
     
     public void add(ResourceCollection res) {
-       /* Shane.chen
-        * super.add(res);*/
+        super.add(res);
         rcs.add(res);
     }
 

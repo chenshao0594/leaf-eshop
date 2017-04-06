@@ -137,8 +137,8 @@ public class SystemPropertiesServiceImpl implements SystemPropertiesService{
         String key = propertyName;
         BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
         if (brc != null) {
-            if (brc.getNonPersistentSite() != null) {
-                key = brc.getNonPersistentSite().getId() + "-" + key;
+            if (brc.getSite() != null) {
+                key = brc.getSite().getId() + "-" + key;
             }
         }
         return key;

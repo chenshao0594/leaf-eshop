@@ -46,9 +46,7 @@ import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Index;
-import org.hibernate.annotations.Parameter;
 import org.hibernate.annotations.Where;
 
 import java.util.ArrayList;
@@ -61,7 +59,6 @@ import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -99,15 +96,6 @@ public class CustomerImpl implements Customer, AdminMainEntity, Previewable, Cus
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(generator= "CustomerId")
-    @GenericGenerator(
-        name="CustomerId",
-        strategy="org.broadleafcommerce.common.persistence.IdOverrideTableGenerator",
-        parameters = {
-            @Parameter(name="segment_value", value="CustomerImpl"),
-            @Parameter(name="entity_name", value="org.broadleafcommerce.profile.core.domain.CustomerImpl")
-        }
-    )
     @Column(name = "CUSTOMER_ID")
     @AdminPresentation(friendlyName = "CustomerImpl_Customer_Id", visibility = VisibilityEnum.HIDDEN_ALL)
     protected Long id;
@@ -193,7 +181,7 @@ public class CustomerImpl implements Customer, AdminMainEntity, Previewable, Cus
             tab = CustomerAdminPresentation.TabName.General,
             deleteEntityUponRemove = true, forceFreeFormKeys = true,
             keyPropertyFriendlyName = "ProductAttributeImpl_Attribute_Name")
-    protected Map<String, CustomerAttribute> customerAttributes = new HashMap<String, CustomerAttribute>();
+    protected Map<String, CustomerAttribute> customerAttributes = new HashMap<>();
 
     @OneToMany(mappedBy = "customer", targetEntity = CustomerAddressImpl.class, cascade = { CascadeType.ALL })
     @Cascade(value = { org.hibernate.annotations.CascadeType.ALL, org.hibernate.annotations.CascadeType.DELETE_ORPHAN })
@@ -202,7 +190,7 @@ public class CustomerImpl implements Customer, AdminMainEntity, Previewable, Cus
     @AdminPresentationCollection(friendlyName = "CustomerImpl_Customer_Addresses",
             group = GroupName.ContactInfo, order = FieldOrder.ADDRESSES,
             addType = AddMethodType.PERSIST)
-    protected List<CustomerAddress> customerAddresses = new ArrayList<CustomerAddress>();
+    protected List<CustomerAddress> customerAddresses = new ArrayList<>();
 
     @OneToMany(mappedBy = "customer", targetEntity = CustomerPhoneImpl.class, cascade = { CascadeType.ALL })
     @Cascade(value = { org.hibernate.annotations.CascadeType.ALL, org.hibernate.annotations.CascadeType.DELETE_ORPHAN })
@@ -210,7 +198,7 @@ public class CustomerImpl implements Customer, AdminMainEntity, Previewable, Cus
     @AdminPresentationCollection(friendlyName = "CustomerImpl_Customer_Phones",
             group = GroupName.ContactInfo, order = FieldOrder.PHONES,
             addType = AddMethodType.PERSIST)
-    protected List<CustomerPhone> customerPhones = new ArrayList<CustomerPhone>();
+    protected List<CustomerPhone> customerPhones = new ArrayList<>();
 
     @OneToMany(mappedBy = "customer", targetEntity = CustomerPaymentImpl.class, cascade = { CascadeType.ALL })
     @Cascade(value = { org.hibernate.annotations.CascadeType.ALL, org.hibernate.annotations.CascadeType.DELETE_ORPHAN })
@@ -220,7 +208,7 @@ public class CustomerImpl implements Customer, AdminMainEntity, Previewable, Cus
             tab = TabName.PaymentMethods, order = 1000,
             addType = AddMethodType.PERSIST,
             readOnly = true)
-    protected List<CustomerPayment> customerPayments = new ArrayList<CustomerPayment>();
+    protected List<CustomerPayment> customerPayments = new ArrayList<>();
 
     @Column(name = "IS_TAX_EXEMPT")
     @AdminPresentation(friendlyName = "CustomerImpl_Is_Tax_Exempt",
@@ -625,7 +613,7 @@ public class CustomerImpl implements Customer, AdminMainEntity, Previewable, Cus
 
     @Override
     public boolean isTaxExempt() {
-        return isTaxExempt != false &&  StringUtils.isNotEmpty(taxExemptionCode);
+        return isTaxExempt != null && isTaxExempt != false &&  StringUtils.isNotEmpty(taxExemptionCode);
     }
 
 }

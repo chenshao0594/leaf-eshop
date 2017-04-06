@@ -28,13 +28,11 @@ import java.io.IOException;
 
 public abstract class AbstractCurrencyConversionPricingFilter implements CurrencyConversionPricingFilter {
     
-    @Override
-	public void destroy() {
+    public void destroy() {
         //do nothing
     }
 
-    @Override
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
         CurrencyConversionContext.setCurrencyConversionContext(getCurrencyConversionContext(request));
         CurrencyConversionContext.setCurrencyConversionService(getCurrencyConversionService(request));
         try {
@@ -45,8 +43,7 @@ public abstract class AbstractCurrencyConversionPricingFilter implements Currenc
         }
     }
 
-    @Override
-	public void init(FilterConfig arg0) throws ServletException {
+    public void init(FilterConfig arg0) throws ServletException {
         //do nothing
     }
     

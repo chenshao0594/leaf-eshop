@@ -53,13 +53,11 @@ public class CheckoutSectionViewType implements Serializable, BroadleafEnumerati
         setType(type);
     }
 
-    @Override
-	public String getType() {
+    public String getType() {
         return type;
     }
 
-    @Override
-	public String getFriendlyType() {
+    public String getFriendlyType() {
         return friendlyType;
     }
 

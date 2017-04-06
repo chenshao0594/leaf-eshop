@@ -63,7 +63,6 @@ import javax.servlet.ServletContextEvent;
  * @author Jeff Fischer
  */
 public class MergeContextLoader extends ContextLoaderListener {
-	
 
     /**
      * Name of servlet context parameter (i.e., "<code>patchConfigLocation</code>")
@@ -97,25 +96,22 @@ public class MergeContextLoader extends ContextLoaderListener {
      * @throws BeansException if the context couldn't be initialized
      * @see ConfigurableWebApplicationContext
      */
-    /*
-     * Shane.chen
-     * 
-     * @Override
-    @Deprecated
-    protected WebApplicationContext createWebApplicationContext(ServletContext servletContext, ApplicationContext parent) throws BeansException {
-        MergeXmlWebApplicationContext wac = new MergeXmlWebApplicationContext();
-        wac.setParent(parent);
-        wac.setServletContext(servletContext);
-        wac.setConfigLocation(servletContext.getInitParameter(ContextLoader.CONFIG_LOCATION_PARAM));
-        wac.setPatchLocation(servletContext.getInitParameter(PATCH_LOCATION_PARAM));
-        wac.setShutdownBean(servletContext.getInitParameter(SHUTDOWN_HOOK_BEAN));
-        wac.setShutdownMethod(servletContext.getInitParameter(SHUTDOWN_HOOK_METHOD));
-        customizeContext(servletContext, wac);
-        wac.refresh();
+//    @Override
+//    @Deprecated
+//    protected WebApplicationContext createWebApplicationContext(ServletContext servletContext, ApplicationContext parent) throws BeansException {
+//        MergeXmlWebApplicationContext wac = new MergeXmlWebApplicationContext();
+//        wac.setParent(parent);
+//        wac.setServletContext(servletContext);
+//        wac.setConfigLocation(servletContext.getInitParameter(ContextLoader.CONFIG_LOCATION_PARAM));
+//        wac.setPatchLocation(servletContext.getInitParameter(PATCH_LOCATION_PARAM));
+//        wac.setShutdownBean(servletContext.getInitParameter(SHUTDOWN_HOOK_BEAN));
+//        wac.setShutdownMethod(servletContext.getInitParameter(SHUTDOWN_HOOK_METHOD));
+//        customizeContext(servletContext, wac);
+//        wac.refresh();
+//
+//        return wac;
+//    }
 
-        return wac;
-    }
-*/
     /**
      * Instantiate the rootId WebApplicationContext for this loader, either the
      * default context class or a custom context class if specified.

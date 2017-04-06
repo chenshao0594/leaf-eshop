@@ -27,14 +27,12 @@ import org.springframework.validation.Validator;
 @Component("blOrderInfoFormValidator")
 public class OrderInfoFormValidator implements Validator {
 
-    @Override
-	@SuppressWarnings("rawtypes")
+    @SuppressWarnings("rawtypes")
     public boolean supports(Class clazz) {
         return clazz.equals(OrderInfoForm.class);
     }
 
-    @Override
-	public void validate(Object obj, Errors errors) {
+    public void validate(Object obj, Errors errors) {
         OrderInfoForm orderInfoForm = (OrderInfoForm) obj;
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "emailAddress", "emailAddress.required");

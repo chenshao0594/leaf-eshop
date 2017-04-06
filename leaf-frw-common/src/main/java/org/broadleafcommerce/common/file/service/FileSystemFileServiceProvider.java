@@ -221,7 +221,7 @@ public class FileSystemFileServiceProvider implements FileServiceProvider {
     protected String getSiteDirectory(String baseDirectory) {
         BroadleafRequestContext brc = BroadleafRequestContext.getBroadleafRequestContext();
         if (brc != null) {
-            Site site = brc.getNonPersistentSite();
+            Site site = brc.getSite();
             if (site != null) {
                 String siteDirectory = "site-" + site.getId();
                 String siteHash = DigestUtils.md5Hex(siteDirectory);

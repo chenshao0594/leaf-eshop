@@ -37,8 +37,7 @@ public class WrappingViewResolver implements ViewResolver {
     /* (non-Javadoc)
      * @see org.springframework.web.servlet.ViewResolver#resolveViewName(java.lang.String, java.util.Locale)
      */
-    @Override
-	public View resolveViewName(String arg0, Locale arg1) throws Exception {
+    public View resolveViewName(String arg0, Locale arg1) throws Exception {
         return view;
     }
 

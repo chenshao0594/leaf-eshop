@@ -27,14 +27,12 @@ import org.springframework.validation.Validator;
 @Component("blCustomerAddressValidator")
 public class CustomerAddressValidator extends BroadleafCommonAddressValidator implements Validator {
 
-    @Override
-	@SuppressWarnings("rawtypes")
+    @SuppressWarnings("rawtypes")
     public boolean supports(Class clazz) {
         return clazz.equals(CustomerAddressValidator.class);
     }
 
-    @Override
-	public void validate(Object obj, Errors errors) {
+    public void validate(Object obj, Errors errors) {
         CustomerAddressForm form = (CustomerAddressForm) obj;
         super.validate(BroadleafFormType.CUSTOMER_ADDRESS_FORM, form.getAddress(), errors);
     }

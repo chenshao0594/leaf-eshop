@@ -215,8 +215,6 @@ $(document).ready(function() {
         hiddenInput.val('');
         //reset the error as now there isn't one
         BLCAdmin.conditions.getCondition($ruleData.data('containerid')).data.error = '';
-        
-        BLCAdmin.conditions.addAdditionalMainCondition($builderContainer);
         return false;
     });
     

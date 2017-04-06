@@ -49,8 +49,7 @@ import javax.servlet.http.HttpServletResponse;
 public class BroadleafSocialRegisterController extends BroadleafRegisterController {
 
     //Pre-populate portions of the RegisterCustomerForm from ProviderSignInUtils.getConnection();
-    @Override
-	public String register(RegisterCustomerForm registerCustomerForm, HttpServletRequest request,
+    public String register(RegisterCustomerForm registerCustomerForm, HttpServletRequest request,
                            HttpServletResponse response, Model model) {
         Connection<?> connection = ProviderSignInUtils.getConnection(new ServletWebRequest(request));
         if (connection != null) {
@@ -70,8 +69,7 @@ public class BroadleafSocialRegisterController extends BroadleafRegisterControll
     }
 
     //Calls ProviderSignInUtils.handlePostSignUp() after a successful registration
-    @Override
-	public String processRegister(RegisterCustomerForm registerCustomerForm, BindingResult errors,
+    public String processRegister(RegisterCustomerForm registerCustomerForm, BindingResult errors,
                                   HttpServletRequest request, HttpServletResponse response, Model model)
             throws ServiceException, PricingException {
         if (isUseEmailForLogin()) {

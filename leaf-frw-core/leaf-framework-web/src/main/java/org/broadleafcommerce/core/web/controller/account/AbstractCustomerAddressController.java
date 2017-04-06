@@ -85,7 +85,7 @@ public class AbstractCustomerAddressController extends BroadleafAbstractControll
          * @deprecated - address.setState() is deprecated in favor of ISO standardization
          * This is here for legacy compatibility
          */
-        /*binder.registerCustomEditor(State.class, "address.state", new PropertyEditorSupport() {
+        binder.registerCustomEditor(State.class, "address.state", new PropertyEditorSupport() {
             @Override
             public void setAsText(String text) {
                 if (StringUtils.isNotEmpty(text)) {
@@ -95,13 +95,13 @@ public class AbstractCustomerAddressController extends BroadleafAbstractControll
                     setValue(null);
                 }
             }
-        });*/
+        });
 
         /**
          * @deprecated - address.setCountry() is deprecated in favor of ISO standardization
          * This is here for legacy compatibility
          */
-       /* binder.registerCustomEditor(Country.class, "address.country", new PropertyEditorSupport() {
+        binder.registerCustomEditor(Country.class, "address.country", new PropertyEditorSupport() {
             @Override
             public void setAsText(String text) {
                 if (StringUtils.isNotEmpty(text)) {
@@ -112,7 +112,7 @@ public class AbstractCustomerAddressController extends BroadleafAbstractControll
                 }
             }
         });
-*/
+
         binder.registerCustomEditor(ISOCountry.class, "address.isoCountryAlpha2", new PropertyEditorSupport() {
             @Override
             public void setAsText(String text) {
