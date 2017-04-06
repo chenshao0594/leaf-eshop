@@ -37,7 +37,7 @@
 
         
     <!-- These resources can also be put in Tomcat's server.xml inside of the <GlobalNamingResources> tag -->
-    <Resource name="jdbc/web"
+   <Resource name="jdbc/web"
           auth="Container"
           type="javax.sql.DataSource"
           factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
@@ -54,10 +54,10 @@
           logAbandoned="true"
           minEvictableIdleTimeMillis="30000"
           jdbcInterceptors="org.apache.tomcat.jdbc.pool.interceptor.ConnectionState;org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer"
-          username="${database.user}"
-          password="${database.password}"
-          driverClassName="${database.driver}"
-          url="${database.url}"/>
+          username="root"
+          password=""
+          driverClassName="com.mysql.jdbc.Driver"
+          url="jdbc:mysql://localhost:3306/smarteshop?useSSL=true"/>
 
     <Resource name="jdbc/storage"
               auth="Container"
@@ -76,10 +76,11 @@
               logAbandoned="true"
               minEvictableIdleTimeMillis="30000"
               jdbcInterceptors="org.apache.tomcat.jdbc.pool.interceptor.ConnectionState;org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer"
-              username="${database.user}"
-              password="${database.password}"
-              driverClassName="${database.driver}"
-              url="${database.url}"/>
+              username="root"
+              password=""
+              driverClassName="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/smarteshop?useSSL=true"/>
+
 
     <Resource name="jdbc/secure"
               auth="Container"
@@ -98,10 +99,11 @@
               logAbandoned="true"
               minEvictableIdleTimeMillis="30000"
               jdbcInterceptors="org.apache.tomcat.jdbc.pool.interceptor.ConnectionState;org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer"
-              username="${database.user}"
-              password="${database.password}"
-              driverClassName="${database.driver}"
-              url="${database.url}"/>
+              username="root"
+              password=""
+              driverClassName="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/smarteshop?useSSL=true"/>
+
 
     <Resource name="jdbc/event"
               auth="Container"
@@ -120,9 +122,9 @@
               logAbandoned="true"
               minEvictableIdleTimeMillis="30000"
               jdbcInterceptors="org.apache.tomcat.jdbc.pool.interceptor.ConnectionState;org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer"
-              username="${database.user}"
-              password="${database.password}"
-              driverClassName="${database.driver}"
-              url="${database.url}"/>
+              username="root"
+              password=""
+              driverClassName="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/smarteshop?useSSL=true"/>
     
 </Context>
