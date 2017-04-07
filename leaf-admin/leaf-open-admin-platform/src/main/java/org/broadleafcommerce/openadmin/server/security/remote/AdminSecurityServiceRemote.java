@@ -78,8 +78,6 @@ public class AdminSecurityServiceRemote implements AdminSecurityService, Securit
     @Resource(name="blAdminSecurityService")
     protected org.broadleafcommerce.openadmin.server.security.service.AdminSecurityService securityService;
 
-    @Resource(name="blExploitProtectionService")
-    protected ExploitProtectionService exploitProtectionService;
     
     @Resource(name = "blRowLevelSecurityService")
     protected RowLevelSecurityService rowLevelSecurityService;

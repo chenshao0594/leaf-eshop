@@ -36,8 +36,6 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
@@ -106,7 +104,6 @@ import org.hibernate.annotations.Type;
  * @author Jeff Fischer
  */
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
 @Table(name="BLC_CATEGORY")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region="blCategories")
 @SQLDelete(sql="UPDATE BLC_CATEGORY SET ARCHIVED = 'Y' WHERE CATEGORY_ID = ?")
@@ -116,8 +113,14 @@ import org.hibernate.annotations.Type;
 })
 public class CategoryImpl implements Category, Status, AdminMainEntity, Locatable, TemplatePathContainer, CategoryAdminPresentation {
 
-    private static final long serialVersionUID = 1L;
-    private static final Log LOG = LogFactory.getLog(CategoryImpl.class);
+	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7791719350767277709L;
+
+	private static final Log LOG = LogFactory.getLog(CategoryImpl.class);
 
     private static String buildLink(Category category, boolean ignoreTopLevel) {
         Category myCategory = category;
@@ -126,14 +129,14 @@ public class CategoryImpl implements Category, Status, AdminMainEntity, Locatabl
         StringBuilder linkBuffer = new StringBuilder(50);
         while (myCategory != null && !preventRecursionCategoryIds.contains(myCategory.getId())) {
             preventRecursionCategoryIds.add(myCategory.getId());
-            if (!ignoreTopLevel || myCategory.getDefaultParentCategory() != null) {
+            if (!ignoreTopLevel || myCategory.getParentCategory() != null) {
                 if (linkBuffer.length() == 0) {
                     linkBuffer.append(myCategory.getUrlKey());
                 } else if(myCategory.getUrlKey() != null && !"/".equals(myCategory.getUrlKey())){
                     linkBuffer.insert(0, myCategory.getUrlKey() + '/');
                 }
             }
-            myCategory = myCategory.getDefaultParentCategory();
+            myCategory = myCategory.getParentCategory();
         }
 
         return linkBuffer.toString();
@@ -247,8 +250,8 @@ public class CategoryImpl implements Category, Status, AdminMainEntity, Locatabl
     protected String displayTemplate;
 
     @Lob
-    @Type(type = "org.hibernate.type.StringClobType")
-    @Column(name = "LONG_DESCRIPTION", length = Integer.MAX_VALUE - 1)
+    @Type(type = "org.hibernate.type.MaterializedClobType")
+    @Column(name = "LONG_DESCRIPTION")
     @AdminPresentation(friendlyName = "CategoryImpl_Category_Long_Description", order = 2000,
             group = GroupName.General,
             largeEntry = true,
@@ -610,23 +613,7 @@ public class CategoryImpl implements Category, Status, AdminMainEntity, Locatabl
         this.longDescription = longDescription;
     }
 
-    @Override
-    @Deprecated
-    public Category getDefaultParentCategory() {
-        Category response;
-        if (defaultParentCategory != null) {
-            response = defaultParentCategory;
-        } else {
-            response = getParentCategory();
-        }
-        return response;
-    }
 
-    @Override
-    @Deprecated
-    public void setDefaultParentCategory(Category defaultParentCategory) {
-        this.defaultParentCategory = defaultParentCategory;
-    }
 
     @Override
     public Category getParentCategory() {
@@ -827,8 +814,8 @@ public class CategoryImpl implements Category, Status, AdminMainEntity, Locatabl
 
         Boolean shouldAdd = true;
         List<Category> myParentCategories = new ArrayList<Category>();
-        if (getDefaultParentCategory() != null) {
-            myParentCategories.add(getDefaultParentCategory());
+        if (getParentCategory() != null) {
+            myParentCategories.add(getParentCategory());
             if (firstParent) {
                 shouldAdd = false;
             }
@@ -860,9 +847,9 @@ public class CategoryImpl implements Category, Status, AdminMainEntity, Locatabl
             currentPath = new ArrayList<Category>();
             currentPath.add(0, this);
         }
-        if (getDefaultParentCategory() != null && ! currentPath.contains(getDefaultParentCategory())) {
-            currentPath.add(0, getDefaultParentCategory());
-            getDefaultParentCategory().buildDefaultParentCategoryPath(currentPath);
+        if (getParentCategory() != null && ! currentPath.contains(getParentCategory())) {
+            currentPath.add(0, getParentCategory());
+            getParentCategory().buildDefaultParentCategoryPath(currentPath);
         }
         return currentPath;
     }
@@ -1333,8 +1320,8 @@ public class CategoryImpl implements Category, Status, AdminMainEntity, Locatabl
             CategoryXref clonedEntry = entry.createOrRetrieveCopyInstance(context).getClone();
             cloned.getAllParentCategoryXrefs().add(clonedEntry);
         }
-        if (getDefaultParentCategory() != null) {
-            cloned.setDefaultParentCategory(getDefaultParentCategory().createOrRetrieveCopyInstance(context).getClone());
+        if (getParentCategory() != null) {
+            cloned.setParentCategory(getParentCategory().createOrRetrieveCopyInstance(context).getClone());
         }
         for(CategoryXref entry : allChildCategoryXrefs){
             CategoryXref clonedEntry = entry.createOrRetrieveCopyInstance(context).getClone();

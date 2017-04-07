@@ -1,22 +1,9 @@
-/*
- * #%L
- * BroadleafCommerce Menu
- * %%
- * Copyright (C) 2009 - 2016 Broadleaf Commerce
- * %%
- * Licensed under the Broadleaf Fair Use License Agreement, Version 1.0
- * (the "Fair Use License" located  at http://license.broadleafcommerce.org/fair_use_license-1.0.txt)
- * unless the restrictions on use therein are violated and require payment to Broadleaf in which case
- * the Broadleaf End User License Agreement (EULA), Version 1.1
- * (the "Commercial License" located at http://license.broadleafcommerce.org/commercial_license-1.1.txt)
- * shall apply.
- * 
- * Alternatively, the Commercial License may be replaced with a mutually agreed upon license (the "Custom License")
- * between you and Broadleaf Commerce. You may not use this file except in compliance with the applicable license.
- * #L%
- */
 package org.broadleafcommerce.menu.service;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import javax.annotation.Resource;
 import org.apache.commons.collections.CollectionUtils;
 import org.broadleafcommerce.core.catalog.domain.Category;
 import org.broadleafcommerce.core.catalog.domain.CategoryXref;
@@ -25,109 +12,105 @@ import org.broadleafcommerce.menu.dao.MenuDao;
 import org.broadleafcommerce.menu.domain.Menu;
 import org.broadleafcommerce.menu.domain.MenuItem;
 import org.broadleafcommerce.menu.dto.MenuItemDTO;
+import org.broadleafcommerce.menu.service.MenuService;
 import org.broadleafcommerce.menu.type.MenuItemType;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.annotation.Resource;
-
 @Service("blMenuService")
 public class MenuServiceImpl implements MenuService {
-    
-    @Resource(name = "blMenuDao")
-    protected MenuDao menuDao;
-    
-    @Resource(name = "blCatalogService")
-    protected CatalogService catalogService;
 
-    @Override
-    public Menu findMenuById(Long id) {
-        return menuDao.readMenuById(id);
-    }
-    
-    @Override
-    public Menu findMenuByName(String menuName) {
-        return menuDao.readMenuByName(menuName);
-    }
+   @Resource(
+      name = "blMenuDao"
+   )
+   protected MenuDao menuDao;
+   @Resource(
+      name = "blCatalogService"
+   )
+   protected CatalogService catalogService;
 
-    @Override
-    public MenuItem findMenuItemById(Long menuItemId) {
-        return menuDao.readMenuItemById(menuItemId);
-    }
 
-    @Override
-    public List<MenuItemDTO> constructMenuItemDTOsForMenu(Menu menu) {
-        List<MenuItemDTO> dtos = new ArrayList<MenuItemDTO>();
-        if (CollectionUtils.isNotEmpty(menu.getMenuItems())) {
-            for (MenuItem menuItem : menu.getMenuItems()) {
-                MenuItemDTO menuItemDTO = convertMenuItemToDTO(menuItem);
+   public Menu findMenuById(Long id) {
+      return this.menuDao.readMenuById(id);
+   }
 
-                if (menuItemDTO != null) {
-                    dtos.add(menuItemDTO);
-                }
+   public Menu findMenuByName(String menuName) {
+      return this.menuDao.readMenuByName(menuName);
+   }
 
+   public MenuItem findMenuItemById(Long menuItemId) {
+      return this.menuDao.readMenuItemById(menuItemId);
+   }
+
+   public List constructMenuItemDTOsForMenu(Menu menu) {
+      ArrayList dtos = new ArrayList();
+      if(CollectionUtils.isNotEmpty(menu.getMenuItems())) {
+         Iterator i$ = menu.getMenuItems().iterator();
+
+         while(i$.hasNext()) {
+            MenuItem menuItem = (MenuItem)i$.next();
+            MenuItemDTO menuItemDTO = this.convertMenuItemToDTO(menuItem);
+            if(menuItemDTO != null) {
+               dtos.add(menuItemDTO);
             }
-        }
-        return dtos;
-    }
+         }
+      }
 
-    protected MenuItemDTO convertMenuItemToDTO(MenuItem menuItem) {
-        if (MenuItemType.SUBMENU.equals(menuItem.getMenuItemType()) &&
-                menuItem.getLinkedMenu() != null) {
-            MenuItemDTO dto = new MenuItemDTO();
-            dto.setUrl(menuItem.getDerivedUrl());
-            dto.setLabel(menuItem.getDerivedLabel());
+      return dtos;
+   }
 
-            List<MenuItemDTO> submenu = new ArrayList<MenuItemDTO>();
-            List<MenuItem> items = menuItem.getLinkedMenu().getMenuItems();
-            if (CollectionUtils.isNotEmpty(items)) {
-                for (MenuItem item : items) {
-                    submenu.add(convertMenuItemToDTO(item));
-                }
+   protected MenuItemDTO convertMenuItemToDTO(MenuItem menuItem) {
+      MenuItemDTO dto;
+      if(MenuItemType.SUBMENU.equals(menuItem.getMenuItemType()) && menuItem.getLinkedMenu() != null) {
+         dto = new MenuItemDTO();
+         dto.setUrl(menuItem.getDerivedUrl());
+         dto.setLabel(menuItem.getDerivedLabel());
+         ArrayList submenu = new ArrayList();
+         List items = menuItem.getLinkedMenu().getMenuItems();
+         if(CollectionUtils.isNotEmpty(items)) {
+            Iterator i$ = items.iterator();
+
+            while(i$.hasNext()) {
+               MenuItem item = (MenuItem)i$.next();
+               submenu.add(this.convertMenuItemToDTO(item));
             }
+         }
 
-            dto.setSubmenu(submenu);
-            return dto;
-        } else if (MenuItemType.CATEGORY.equals(menuItem.getMenuItemType())) {
-            Category category = catalogService.findCategoryByURI(menuItem.getActionUrl());
+         dto.setSubmenu(submenu);
+         return dto;
+      } else if(MenuItemType.CATEGORY.equals(menuItem.getMenuItemType())) {
+         Category dto1 = this.catalogService.findCategoryByURI(menuItem.getActionUrl());
+         return dto1 != null?this.convertCategoryToMenuItemDTO(dto1):null;
+      } else {
+         dto = new MenuItemDTO();
+         dto.setUrl(menuItem.getDerivedUrl());
+         dto.setLabel(menuItem.getDerivedLabel());
+         if(menuItem.getImage() != null) {
+            dto.setImageUrl(menuItem.getImage().getUrl());
+            dto.setAltText(menuItem.getAltText());
+         }
 
-            if (category != null) {
-                return convertCategoryToMenuItemDTO(category);
-            } else {
-                return null;
-            }
-        } else {
-            MenuItemDTO dto = new MenuItemDTO();
-            dto.setUrl(menuItem.getDerivedUrl());
-            dto.setLabel(menuItem.getDerivedLabel());
-            if (menuItem.getImage() != null) {
-                dto.setImageUrl(menuItem.getImage().getUrl());
-                dto.setAltText(menuItem.getAltText());
-            }
-            return dto;
-        }
+         return dto;
+      }
+   }
 
-    }
+   protected MenuItemDTO convertCategoryToMenuItemDTO(Category category) {
+      MenuItemDTO dto = new MenuItemDTO();
+      dto.setLabel(category.getName());
+      dto.setUrl(category.getUrl());
+      dto.setCategoryId(category.getId());
+      List categoryXrefs = category.getChildCategoryXrefs();
+      if(CollectionUtils.isNotEmpty(categoryXrefs)) {
+         ArrayList submenu = new ArrayList();
+         Iterator i$ = categoryXrefs.iterator();
 
-    protected MenuItemDTO convertCategoryToMenuItemDTO(Category category) {
-        MenuItemDTO dto = new MenuItemDTO();
-        dto.setLabel(category.getName());
-        dto.setUrl(category.getUrl());
-        dto.setCategoryId(category.getId());
+         while(i$.hasNext()) {
+            CategoryXref xref = (CategoryXref)i$.next();
+            submenu.add(this.convertCategoryToMenuItemDTO(xref.getSubCategory()));
+         }
 
-        List<CategoryXref> categoryXrefs = category.getChildCategoryXrefs();
+         dto.setSubmenu(submenu);
+      }
 
-        if (CollectionUtils.isNotEmpty(categoryXrefs)) {
-            List<MenuItemDTO> submenu = new ArrayList<MenuItemDTO>();
-            for (CategoryXref xref : categoryXrefs) {
-                submenu.add(convertCategoryToMenuItemDTO(xref.getSubCategory()));
-            }
-
-            dto.setSubmenu(submenu);
-        }
-        return dto;
-    }
-
+      return dto;
+   }
 }

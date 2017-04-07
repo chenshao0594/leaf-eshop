@@ -83,18 +83,19 @@
     <bean id="blAdminUserDetailsService" class="org.broadleafcommerce.openadmin.server.security.service.AdminUserDetailsServiceImpl"/>
     
     <!-- This ensures that the user has permissions to perform the requested operation -->
-    <bean id="blAdminFilterSecurityInterceptor"
-        class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor">
-        <property name="accessDecisionManager" ref="blAccessDecisionManager"/>
-        <property name="authenticationManager" ref="blAdminAuthenticationManager" />
-        <property name="securityMetadataSource">
-            <sec:filter-security-metadata-source>
-                <sec:intercept-url pattern="/**/*" access="PERMISSION_OTHER_DEFAULT" />
-                <sec:intercept-url pattern="/*" access="PERMISSION_OTHER_DEFAULT" />
-            </sec:filter-security-metadata-source>
-        </property>
-    </bean>
-    
+   <bean id="blAdminFilterSecurityInterceptor"
+		class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor">
+		<property name="accessDecisionManager" ref="blAccessDecisionManager" />
+		<property name="authenticationManager" ref="blAdminAuthenticationManager" />
+		<property name="securityMetadataSource">
+			<sec:filter-security-metadata-source use-expressions="false">
+				<sec:intercept-url pattern="/**/*"
+					access="PERMISSION_OTHER_DEFAULT" />
+				<sec:intercept-url pattern="/*"
+					access="PERMISSION_OTHER_DEFAULT" />
+			</sec:filter-security-metadata-source>
+		</property>
+	</bean>
     <!-- Sets the login failure URL -->
     <bean id="blAdminAuthenticationFailureHandler" class="org.broadleafcommerce.openadmin.security.BroadleafAdminAuthenticationFailureHandler">
         <constructor-arg value="/login?login_error=true" />
@@ -106,16 +107,16 @@
         <property name="alwaysUseDefaultTargetUrl" value="false"/>
     </bean>
     
-    <!-- The access decision manager works in conjunciton with global method security -->
-    <bean id="blAccessDecisionManager" class="org.springframework.security.access.vote.UnanimousBased">
-        <property name="decisionVoters">
-            <list>
-                <bean class="org.springframework.security.access.vote.RoleVoter">
-                    <property name="rolePrefix" value="PERMISSION_" />
-                </bean>
-            </list>
-        </property>
-    </bean>
+   <!-- The access decision manager works in conjunciton with global method  security -->
+	<bean id="blAccessDecisionManager" class="org.springframework.security.access.vote.UnanimousBased">
+		<constructor-arg>
+			<list>
+				<bean class="org.springframework.security.access.vote.RoleVoter">
+					<property name="rolePrefix" value="PERMISSION_" />
+				</bean>
+			</list>
+		</constructor-arg>
+	</bean>
     
     <!-- Allow the @Secured annotations -->
     <sec:global-method-security access-decision-manager-ref="blAccessDecisionManager" secured-annotations="enabled" />

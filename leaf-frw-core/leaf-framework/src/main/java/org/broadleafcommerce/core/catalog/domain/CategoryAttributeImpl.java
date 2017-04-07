@@ -49,7 +49,6 @@ import javax.persistence.Table;
  * @author Phillip Verheyden
  */
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
 @Table(name="BLC_CATEGORY_ATTRIBUTE")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region="blCategories")
 @AdminPresentationClass(friendlyName = "baseCategoryAttribute")

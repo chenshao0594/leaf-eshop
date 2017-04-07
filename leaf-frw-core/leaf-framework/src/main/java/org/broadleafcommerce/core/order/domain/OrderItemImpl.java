@@ -420,7 +420,7 @@ public class OrderItemImpl implements OrderItem, Cloneable, AdminMainEntity, Cur
             if (currentCategory.getName().equals(categoryName)) {
                 return true;
             }
-            while ((currentCategory = currentCategory.getDefaultParentCategory()) != null) {
+            while ((currentCategory = currentCategory.getParentCategory()) != null) {
                 if (currentCategory.getName().equals(categoryName)) {
                     return true;
                 }

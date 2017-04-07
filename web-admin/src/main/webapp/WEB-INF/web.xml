@@ -98,8 +98,8 @@
             <param-name>contextConfigLocation</param-name>
             <param-value>
                 classpath:/applicationContext-servlet-open-admin.xml
-                classpath:/applicationContext-servlet-admin.xml
-                classpath:/applicationContext-servlet-cms-contentClient.xml
+<!--                 classpath:/applicationContext-servlet-admin.xml
+ -->                classpath:/applicationContext-servlet-cms-contentClient.xml
                 classpath:/applicationContext-servlet-cms-contentCreator.xml
                 classpath:/bl-menu-admin-applicationContext-servlet.xml
                 classpath*:/blc-config/admin/bl-*-admin-applicationContext-servlet.xml

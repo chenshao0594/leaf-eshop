@@ -1,40 +1,22 @@
-/*
- * #%L
- * BroadleafCommerce Menu
- * %%
- * Copyright (C) 2009 - 2016 Broadleaf Commerce
- * %%
- * Licensed under the Broadleaf Fair Use License Agreement, Version 1.0
- * (the "Fair Use License" located  at http://license.broadleafcommerce.org/fair_use_license-1.0.txt)
- * unless the restrictions on use therein are violated and require payment to Broadleaf in which case
- * the Broadleaf End User License Agreement (EULA), Version 1.1
- * (the "Commercial License" located at http://license.broadleafcommerce.org/commercial_license-1.1.txt)
- * shall apply.
- * 
- * Alternatively, the Commercial License may be replaced with a mutually agreed upon license (the "Custom License")
- * between you and Broadleaf Commerce. You may not use this file except in compliance with the applicable license.
- * #L%
- */
 package org.broadleafcommerce.menu.dao;
 
+import java.util.List;
 import org.broadleafcommerce.menu.domain.Menu;
 import org.broadleafcommerce.menu.domain.MenuItem;
-import java.util.List;
 
 public interface MenuDao {
 
-    public List<Menu> readAllMenus();
+   List readAllMenus();
 
-    public List<MenuItem> readAllMenuItems();
+   List readAllMenuItems();
 
-    public Menu readMenuById(Long menuId);
+   Menu readMenuById(Long var1);
 
-    public MenuItem readMenuItemById(Long menuItemId);
+   MenuItem readMenuItemById(Long var1);
 
-    public Menu readMenuByName(String menuName);
+   Menu readMenuByName(String var1);
 
-    public Menu saveMenu(Menu menu);
+   Menu saveMenu(Menu var1);
 
-    public MenuItem saveMenuItem(MenuItem menuItem);
-
+   MenuItem saveMenuItem(MenuItem var1);
 }

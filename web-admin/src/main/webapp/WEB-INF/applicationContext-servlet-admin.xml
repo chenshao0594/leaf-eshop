@@ -46,6 +46,7 @@
         <property name="defaultLocale" value="en"/>
     </bean>
 
+	<context:component-scan base-package="org.broadleafcommerce.admin.web.controller" />
     <mvc:default-servlet-handler/>
 
 </beans>

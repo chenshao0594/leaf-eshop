@@ -77,31 +77,6 @@ public interface Category extends Serializable, MultiTenantCloneable<Category> {
     public void setName(@Nonnull String name);
 
     /**
-     * Gets the default parent category. This method will delegate to
-     * {@link #getParentCategory()} by default, unless the "use.legacy.default.category.mode" property is set to
-     * true in the implementation's property file. If set to true, this method will use legacy behavior,
-     * which is to return the deprecated defaultParentCategory field.
-     *
-     * @deprecated use {@link #getParentCategory()} instead
-     * @return the default parent category
-     */
-    @Deprecated
-    @Nullable
-    public Category getDefaultParentCategory();
-
-    /**
-     * Sets the default parent category. This method will delegate to
-     * {@link #setParentCategory(Category)} by default, unless the "use.legacy.default.category.mode" property is set to
-     * true in the implementation's property file. If set to true, this method will use legacy behavior,
-     * which is to set the deprecated defaultParentCategory field.
-     *
-     * @deprecated use {@link #setParentCategory(Category)} instead
-     * @param defaultParentCategory the new default parent category
-     */
-    @Deprecated
-    public void setDefaultParentCategory(@Nullable Category defaultParentCategory);
-
-    /**
      * Return the category that is the parent of this category - if applicable
      *
      * @return

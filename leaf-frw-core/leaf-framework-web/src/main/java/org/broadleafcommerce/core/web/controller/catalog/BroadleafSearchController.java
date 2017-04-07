@@ -58,8 +58,6 @@ public class BroadleafSearchController extends AbstractCatalogController {
     @Resource(name = "blSearchService")
     protected SearchService searchService;
 
-    @Resource(name = "blExploitProtectionService")
-    protected ExploitProtectionService exploitProtectionService;
     
     @Resource(name = "blSearchFacetDTOService")
     protected SearchFacetDTOService facetService;
