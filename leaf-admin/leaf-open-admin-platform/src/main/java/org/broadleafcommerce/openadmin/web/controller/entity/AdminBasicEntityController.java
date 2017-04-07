@@ -17,9 +17,20 @@
  */
 package org.broadleafcommerce.openadmin.web.controller.entity;
 
+import java.net.URLDecoder;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.MapUtils;
-import org.apache.commons.collections.SetUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -77,9 +88,11 @@ import org.springframework.ui.Model;
 import org.springframework.util.MultiValueMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -90,17 +103,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.util.UrlPathHelper;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.net.URLDecoder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * The default implementation of the {@link #BroadleafAdminAbstractEntityController}. This delegates every call to 
@@ -153,7 +155,7 @@ public class AdminBasicEntityController extends AdminAbstractController {
      * @return the return view path
      * @throws Exception
      */
-    @RequestMapping(value = "", method = RequestMethod.GET)
+    @GetMapping(value = "")
     public String viewEntityList(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable Map<String, String> pathVars,
             @RequestParam MultiValueMap<String, String> requestParams) throws Exception {
@@ -211,7 +213,7 @@ public class AdminBasicEntityController extends AdminAbstractController {
         setTypedEntityModelAttributes(request, model);
     }
 
-    @RequestMapping(value = "/selectize", method = RequestMethod.GET)
+    @GetMapping(value = "/selectize")
     public @ResponseBody Map<String, Object> viewEntityListSelectize(HttpServletRequest request,
              HttpServletResponse response, Model model,
              @PathVariable Map<String, String> pathVars,
@@ -307,7 +309,7 @@ public class AdminBasicEntityController extends AdminAbstractController {
      * @return the return view path
      * @throws Exception
      */
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    @GetMapping(value = "/add")
     public String viewAddEntityForm(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable  Map<String, String> pathVars,
             @RequestParam(defaultValue = "") String entityType) throws Exception {
@@ -364,7 +366,7 @@ public class AdminBasicEntityController extends AdminAbstractController {
      * @return the return view path
      * @throws Exception
      */
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @PostMapping(value = "/add")
     public String addEntity(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable  Map<String, String> pathVars,
             @ModelAttribute(value="entityForm") EntityForm entityForm, BindingResult result) throws Exception {
@@ -409,7 +411,7 @@ public class AdminBasicEntityController extends AdminAbstractController {
      * @return the return view path
      * @throws Exception
      */
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @GetMapping(value = "/{id}")
     public String viewEntityForm(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable  Map<String, String> pathVars,
             @PathVariable("id") String id) throws Exception {
@@ -491,7 +493,7 @@ public class AdminBasicEntityController extends AdminAbstractController {
      * @return the return view path
      * @throws Exception
      */
-    @RequestMapping(value = "/{id}/{tab:[0-9]+}/{tabName}", method = RequestMethod.POST)
+    @PostMapping(value = "/{id}/{tab:[0-9]+}/{tabName}")
     public String viewEntityTab(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable Map<String, String> pathVars,
             @PathVariable(value = "id") String id,
@@ -543,7 +545,7 @@ public class AdminBasicEntityController extends AdminAbstractController {
      * }
      * 
      */
-    @RequestMapping(value = "/{id}", method = RequestMethod.POST, produces = "application/json")
+    @PostMapping(value = "/{id}", produces = "application/json")
     public String saveEntityJson(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable Map<String, String> pathVars,
             @PathVariable(value = "id") String id,
@@ -603,7 +605,7 @@ public class AdminBasicEntityController extends AdminAbstractController {
      * @return the return view path
      * @throws Exception
      */
-    @RequestMapping(value = "/{id}", method = RequestMethod.POST)
+    @PostMapping(value = "/{id}")
     public String saveEntity(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable  Map<String, String> pathVars,
             @PathVariable(value="id") String id,
@@ -668,7 +670,7 @@ public class AdminBasicEntityController extends AdminAbstractController {
      * @return the return view path
      * @throws Exception
      */
-    @RequestMapping(value = "/{id}/delete", method = RequestMethod.POST)
+    @PostMapping(value = "/{id}/delete")
     public String removeEntity(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable  Map<String, String> pathVars,
             @PathVariable(value="id") String id,
@@ -715,7 +717,7 @@ public class AdminBasicEntityController extends AdminAbstractController {
         }
     }
 
-    @RequestMapping(value = "/{collectionField:.*}/details", method = RequestMethod.GET)
+    @GetMapping(value = "/{collectionField:.*}/details")
     public @ResponseBody Map<String, String> getCollectionValueDetails(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable  Map<String, String> pathVars,
             @PathVariable(value="collectionField") String collectionField,
@@ -773,7 +775,7 @@ public class AdminBasicEntityController extends AdminAbstractController {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/{collectionField:.*}/{id}/view", method = RequestMethod.GET)
+    @GetMapping(value = "/{collectionField:.*}/{id}/view")
     public String viewCollectionItemDetails(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable  Map<String, String> pathVars,
             @PathVariable(value="collectionField") String collectionField,
@@ -871,7 +873,7 @@ public class AdminBasicEntityController extends AdminAbstractController {
      * @return the return view path
      * @throws Exception
      */
-    @RequestMapping(value = "/{id}/{collectionField:.*}/add", method = RequestMethod.GET)
+    @GetMapping(value = "/{id}/{collectionField:.*}/add")
     public String showAddCollectionItem(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable Map<String, String> pathVars,
             @PathVariable(value = "id") String id,
@@ -944,7 +946,7 @@ public class AdminBasicEntityController extends AdminAbstractController {
         return buildAddCollectionItemModel(request, response, model, id, collectionField, sectionKey, collectionProperty, md, ppr, null, null);
     }
 
-    @RequestMapping(value = "/{id}/{collectionField:.*}/add/{collectionItemId}/verify", method = RequestMethod.POST)
+    @PostMapping(value = "/{id}/{collectionField:.*}/add/{collectionItemId}/verify")
     public @ResponseBody Map<String, Object> addCollectionItem(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable Map<String, String> pathVars,
             @PathVariable(value="id") String id,
@@ -977,7 +979,7 @@ public class AdminBasicEntityController extends AdminAbstractController {
      * @return Json collection data
      * @throws Exception
      */
-    @RequestMapping(value = "/{id}/{collectionField:.*}/selectize", method = RequestMethod.GET)
+    @GetMapping(value = "/{id}/{collectionField:.*}/selectize")
     public @ResponseBody Map<String, Object> getSelectizeCollectionOptions(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable Map<String, String> pathVars,
             @PathVariable(value = "id") String id,
@@ -1020,7 +1022,7 @@ public class AdminBasicEntityController extends AdminAbstractController {
      * @return the return view path
      * @throws Exception
      */
-    @RequestMapping(value = "/{id}/{collectionField:.*}/selectize-add", method = RequestMethod.POST)
+    @PostMapping(value = "/{id}/{collectionField:.*}/selectize-add")
     public @ResponseBody Map<String, Object> addSelectizeCollectionItem(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable Map<String, String> pathVars,
             @PathVariable(value="id") String id,
@@ -1072,7 +1074,7 @@ public class AdminBasicEntityController extends AdminAbstractController {
      * @return the return view path
      * @throws Exception
      */
-    @RequestMapping(value = "/{id}/{collectionField:.*}/add", method = RequestMethod.POST)
+    @PostMapping(value = "/{id}/{collectionField:.*}/add")
     public String addCollectionItem(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable Map<String, String> pathVars,
             @PathVariable(value="id") String id,
@@ -1116,7 +1118,7 @@ public class AdminBasicEntityController extends AdminAbstractController {
         return "views/standaloneListGrid";
     }
 
-    @RequestMapping(value = "/{id}/{collectionField:.*}/addEmpty", method = RequestMethod.POST)
+    @PostMapping(value = "/{id}/{collectionField:.*}/addEmpty")
     public @ResponseBody String addEmptyCollectionItem(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable Map<String, String> pathVars,
             @PathVariable(value="id") String id,
@@ -1291,7 +1293,7 @@ public class AdminBasicEntityController extends AdminAbstractController {
      * @return the return view path
      * @throws Exception
      */
-    @RequestMapping(value = "/{id}/{collectionField:.*}/{collectionItemId}/{alternateId}", method = RequestMethod.GET)
+    @GetMapping(value = "/{id}/{collectionField:.*}/{collectionItemId}/{alternateId}")
     public String showUpdateCollectionItem(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable  Map<String, String> pathVars,
             @PathVariable(value="id") String id,

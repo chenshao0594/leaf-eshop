@@ -9,7 +9,7 @@
     </script>
 
     <blc_admin:admin_user resultVar="adminUser" ></blc_admin:admin_user>
-    <blc:form id="js-error-handling" method="POST" ></blc:form>
+    <form id="js-error-handling" method="POST" ></form>
     <script th:with="adminUser=${adminUser}" th:inline="javascript">
         var BLC_USER_PREFS = /*[[${adminUser.flatAdditionalFields}]]*/ {};
     </script>

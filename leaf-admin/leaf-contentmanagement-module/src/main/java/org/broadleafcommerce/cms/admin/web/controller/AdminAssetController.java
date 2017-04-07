@@ -48,7 +48,7 @@ import java.util.Map;
  * 
  * @author Andre Azzolini (apazzolini)
  */
-@Controller("blAdminAssetController")
+@Controller()
 @RequestMapping("/" + AdminAssetController.SECTION_KEY)
 public class AdminAssetController extends AdminBasicEntityController {
     

@@ -97,6 +97,7 @@
     $(document).ready(function() {
         // Send JavaScript errors to the server for logging.
         window.onerror = function(message, url, lineNumber) {
+        	
             BLC.ajax({
                 url: BLC.servletContext + "/logJavaScriptError",
                 type: "POST",

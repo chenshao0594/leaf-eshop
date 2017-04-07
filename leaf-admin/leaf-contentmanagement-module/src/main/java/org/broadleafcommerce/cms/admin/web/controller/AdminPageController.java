@@ -49,7 +49,7 @@ import javax.servlet.http.HttpServletResponse;
  * 
  * @author Andre Azzolini (apazzolini)
  */
-@Controller("blAdminPageController")
+@Controller()
 @RequestMapping("/" + AdminPageController.SECTION_KEY)
 public class AdminPageController extends AdminBasicEntityController {
     

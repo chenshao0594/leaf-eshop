@@ -40,7 +40,7 @@
 
     <div class="content-yield">
         <div class="row">
-            <blc:form class="entity-form" th:object="${entityForm}"
+            <form class="entity-form" th:object="${entityForm}"
                       method="POST"
                       th:classappend="${(additionalClasses == null ? '' : additionalClasses + ' ')
                          + (additionalControllerClasses == null ? '' : additionalControllerClasses)}"
@@ -163,7 +163,7 @@
                     </button>
                     <img th:src="@{/img/admin/ajax-loader.gif}" class="ajax-loader" />
                 </div>
-            </blc:form>
+            </form>
         </div>
     </div>
 </th:block>

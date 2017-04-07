@@ -35,7 +35,7 @@ import javax.servlet.http.HttpServletRequest;
  * 
  * @author Andre Azzolini (apazzolini)
  */
-@Controller("blAdminOrderController")
+@Controller()
 @RequestMapping("/" + AdminOrderController.SECTION_KEY)
 public class AdminOrderController extends AdminBasicEntityController {
     

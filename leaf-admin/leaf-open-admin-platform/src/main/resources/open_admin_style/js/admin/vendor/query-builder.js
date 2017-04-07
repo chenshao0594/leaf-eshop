@@ -1,28 +1,3 @@
-/*
- * #%L
- * BroadleafCommerce Open Admin Platform
- * %%
- * Copyright (C) 2009 - 2016 Broadleaf Commerce
- * %%
- * Licensed under the Broadleaf Fair Use License Agreement, Version 1.0
- * (the "Fair Use License" located  at http://license.broadleafcommerce.org/fair_use_license-1.0.txt)
- * unless the restrictions on use therein are violated and require payment to Broadleaf in which case
- * the Broadleaf End User License Agreement (EULA), Version 1.1
- * (the "Commercial License" located at http://license.broadleafcommerce.org/commercial_license-1.1.txt)
- * shall apply.
- * 
- * Alternatively, the Commercial License may be replaced with a mutually agreed upon license (the "Custom License")
- * between you and Broadleaf Commerce. You may not use this file except in compliance with the applicable license.
- * #L%
- */
-/*!
- * jQuery QueryBuilder 2.3.0
- * Copyright 2014-2015 Damien "Mistic" Sorel (http://www.strangeplanet.fr)
- * Licensed under MIT (http://opensource.org/licenses/MIT)
- */
-
-// Languages: en
-// Plugins: bt-checkbox, bt-selectpicker, bt-tooltip-errors, change-filters, filter-description, invert, mongodb-support, sortable, sql-support, unique-filter
 (function(root, factory) {
     if (typeof define === 'function' && define.amd) {
         define(['jquery', 'doT', 'jQuery.extendext'], factory);
@@ -379,7 +354,7 @@ QueryBuilder.prototype.checkFilters = function(filters) {
     var definedFilters = [];
 
     if (!filters || filters.length === 0) {
-        Utils.error('Missing filters list');
+       // Utils.error('Missing filters list');
     }
 
     filters.forEach(function(filter, i) {

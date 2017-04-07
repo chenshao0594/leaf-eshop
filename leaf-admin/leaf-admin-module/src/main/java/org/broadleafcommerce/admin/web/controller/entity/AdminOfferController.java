@@ -42,7 +42,7 @@ import javax.servlet.http.HttpServletResponse;
  * 
  * @author Andre Azzolini (apazzolini)
  */
-@Controller("blAdminOfferController")
+@Controller()
 @RequestMapping("/" + AdminOfferController.SECTION_KEY)
 public class AdminOfferController extends AdminBasicEntityController {
     

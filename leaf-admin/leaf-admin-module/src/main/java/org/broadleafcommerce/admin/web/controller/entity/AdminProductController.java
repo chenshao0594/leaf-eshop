@@ -17,19 +17,26 @@
  */
 package org.broadleafcommerce.admin.web.controller.entity;
 
-import org.apache.commons.lang.ArrayUtils;
+import java.net.URLDecoder;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.commons.lang3.StringUtils;
 import org.broadleafcommerce.admin.server.service.handler.ProductCustomPersistenceHandler;
 import org.broadleafcommerce.common.exception.ServiceException;
 import org.broadleafcommerce.common.presentation.client.SupportedFieldType;
 import org.broadleafcommerce.core.catalog.domain.Category;
 import org.broadleafcommerce.core.catalog.domain.Product;
-import org.broadleafcommerce.core.catalog.domain.ProductBundle;
 import org.broadleafcommerce.core.catalog.domain.Sku;
 import org.broadleafcommerce.core.catalog.domain.SkuImpl;
 import org.broadleafcommerce.core.catalog.service.CatalogService;
 import org.broadleafcommerce.openadmin.dto.BasicCollectionMetadata;
-import org.broadleafcommerce.openadmin.dto.BasicFieldMetadata;
 import org.broadleafcommerce.openadmin.dto.ClassMetadata;
 import org.broadleafcommerce.openadmin.dto.ClassTree;
 import org.broadleafcommerce.openadmin.dto.DynamicResultSet;
@@ -54,16 +61,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.net.URLDecoder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 /**
  * Handles admin operations for the {@link Product} entity. Editing a product requires custom criteria in order to properly
  * invoke the {@link ProductCustomPersistenceHandler}
@@ -71,7 +68,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Andre Azzolini (apazzolini)
  * @see {@link ProductCustomPersistenceHandler}
  */
-@Controller("blAdminProductController")
+@Controller()
 @RequestMapping("/" + AdminProductController.SECTION_KEY)
 public class AdminProductController extends AdminBasicEntityController {
     
@@ -349,14 +346,6 @@ public class AdminProductController extends AdminBasicEntityController {
         ListGrid productOptionsGrid = form.findListGrid("productOptions");
         if (productOptionsGrid != null) {
             productOptionsGrid.addToolbarAction(generateSkusAction);
-        }
-        
-        // When we're dealing with product bundles, we don't want to render the product options and additional skus
-        // list grids. Remove them from the form.
-        if (ProductBundle.class.isAssignableFrom(Class.forName(form.getEntityType()))) {
-            form.removeListGrid("additionalSkus");
-            form.removeListGrid("productOptions");
-            form.removeField("canSellWithoutOptions");
         }
         
         form.removeListGrid("defaultSku.skuAttributes");

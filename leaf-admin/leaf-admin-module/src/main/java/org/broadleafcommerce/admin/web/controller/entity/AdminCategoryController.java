@@ -34,7 +34,7 @@ import java.util.Map;
  * 
  * @author Andre Azzolini (apazzolini)
  */
-@Controller("blAdminCategoryController")
+@Controller()
 @RequestMapping("/" + AdminCategoryController.SECTION_KEY)
 public class AdminCategoryController extends AdminBasicEntityController {
     

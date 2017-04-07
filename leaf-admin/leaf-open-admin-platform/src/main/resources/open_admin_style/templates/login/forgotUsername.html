@@ -8,7 +8,7 @@
          </div>
     </div>
 
-    <blc:form th:fragment="form" action="#" th:action="@{/forgotUsername}" method="POST">
+    <form th:fragment="form" action="#" th:action="@{/forgotUsername}" method="POST">
 
         <div class="field-group">
             <label th:text="#{password.email}" ></label>
@@ -24,7 +24,7 @@
             </ul>
             <input type="submit" class="button primary large" value="Send Username"/>
         </div>
-    </blc:form>
+    </form>
 
     <div th:fragment="options">
         <ul class="inline-list">

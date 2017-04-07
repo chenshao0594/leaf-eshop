@@ -457,6 +457,8 @@ public class RuleFieldPersistenceProvider extends FieldPersistenceProviderAdapte
         try {
             DataWrapper oiWrapper = translator.createRuleData(targetItemCriterias, "matchRule", "quantity", "id",
                     ruleBuilderFieldServiceFactory.createInstance(fieldService));
+            
+            
             json = mapper.writeValueAsString(oiWrapper);
         } catch (Exception e) {
             throw new RuntimeException(e);

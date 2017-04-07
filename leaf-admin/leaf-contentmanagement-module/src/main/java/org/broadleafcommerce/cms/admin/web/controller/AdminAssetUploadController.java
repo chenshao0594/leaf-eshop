@@ -71,7 +71,7 @@ public class AdminAssetUploadController extends AdminAbstractController {
     @Resource(name = "blStaticAssetService")
     protected StaticAssetService staticAssetService;
     
-    @Resource(name = "blAdminAssetController")
+    @Resource()
     protected AdminAssetController assetController;
 
     @RequestMapping(value = "/{id}/chooseAsset", method = RequestMethod.GET)

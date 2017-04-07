@@ -11,21 +11,17 @@
                     </tr>
                    <div th:each="orderItem : *{orderItems}" th:object="${orderItem}" th:remove="tag">
                    <tr >
-                    
                         <td class="label" th:utext="${orderItem.quantity} + ' of ' + ${orderItem.name}"></td>
                         <td class="price" blc:price="${orderItem.totalPrice}"></td>
-                        
                     </tr>
                     <tr >
                       <td>
                         <div th:object="${orderItem}" th:remove="tag">
                             <div class="productOptions" th:replace="~{catalog/partials/offers :: orderDetails}"></div>
-                          
                          </div>
                       </td>
                       <td></td>
                     </tr>
-                    
                     </div>
                     <tr class="shipment-summary merchandise-total">
                         <td class="label">Merchandise Total:</td>

@@ -28,7 +28,7 @@
                http://schema.broadleafcommerce.org/mo
                http://schema.broadleafcommerce.org/mo/mo-3.0.xsd">
 
-    <context:component-scan base-package="org.broadleafcommerce.admin">
+    <context:component-scan base-package="org.broadleafcommerce.admin, org.broadleafcommerce.admin.persistence.validation">
         <context:exclude-filter type="regex" expression="org.broadleafcommerce.admin.web.controller.*"/>
     </context:component-scan>
 

@@ -37,6 +37,8 @@ public class RuleBuilderFieldServiceFactoryImpl implements RuleBuilderFieldServi
 
     @Override
     public RuleBuilderFieldService createInstance(String name) {
+    	
+    	System.out.println("fieldServices " + fieldServices);
 
         for (RuleBuilderFieldService service : fieldServices) {
             if (service.getName().equals(name)){

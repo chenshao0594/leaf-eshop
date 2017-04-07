@@ -37,7 +37,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author by reginaldccole
  */
-@Controller("blAdminUserManagementController")
+@Controller()
 @RequestMapping("/" + AdminUserManagementController.SECTION_KEY)
 public class AdminUserManagementController extends AdminBasicEntityController {
 
