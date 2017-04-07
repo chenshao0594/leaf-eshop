@@ -137,6 +137,10 @@ public class MVELToDataWrapperTranslator {
 
     public void appendExpression(String phrase, RuleBuilderFieldService fieldService, int count, DataDTO parentDTO,
                                  List<ExpressionDTO> myCriteriaList) throws MVELTranslationException {
+    	
+    	if(fieldService==null){
+    		return;
+    	}
         Expression expression = phraseTranslator.createExpression(phrase);
         FieldDTO field = fieldService.getField(expression.getField());
         if (field == null) {
