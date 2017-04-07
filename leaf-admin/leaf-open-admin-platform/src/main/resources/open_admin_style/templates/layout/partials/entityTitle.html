@@ -2,14 +2,14 @@
     <th:block th:if="${entityFriendlyName}" blc_admin:admin_section_href="${currentAdminSection}" >
         <h3>
             <span class="filter-text" style="display: none;">Filtered </span>
-            <span th:inline="text" class="admin-section">
+            <span   class="admin-section">
                 [[#{#{${currentAdminSection.sectionKey}}}]]
             </span>
         </h3>
         <h4 class="main-count">
             <th:block th:unless="${totalTreeRecords} == null" th:text="${totalTreeRecords}" ></th:block>
             <th:block th:if="${totalTreeRecords} == null" th:text="${listGrid.totalRecords}" ></th:block>
-            <th:block th:inline="text">
+            <th:block  >
                 [[#{#{${currentAdminSection.sectionKey}}}]]
             </th:block>
         </h4>
@@ -102,7 +102,7 @@
         <a class="back-button" blc_admin:admin_section_href="${currentAdminSection}" >
             <i class="fa fa-angle-left fa-2x"></i>&nbsp;&nbsp;&nbsp;
             <h3>
-                <span th:inline="text">
+                <span  >
                     [[#{${currentAdminSection.sectionKey}}]]
                 </span>
             </h3>
@@ -163,7 +163,7 @@
     </th:block>
 
     <div id="headerFlashAlertBoxContainer" th:classappend="${headerFlash == null ? 'hidden' : ''}">
-        <div id="headerFlashAlertBox" class="alert-box" th:classappend="${headerFlashAlert != null and headerFlashAlert ? 'alert' : 'success'}" th:inline="text">
+        <div id="headerFlashAlertBox" class="alert-box" th:classappend="${headerFlashAlert != null and headerFlashAlert ? 'alert' : 'success'}"  >
             <span class="alert-box-message" th:text="${headerFlash != null} ? #{${headerFlash}} : ''"></span>
         </div>
     </div>

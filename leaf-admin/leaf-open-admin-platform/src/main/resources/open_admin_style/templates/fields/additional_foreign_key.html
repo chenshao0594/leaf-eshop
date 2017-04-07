@@ -11,7 +11,7 @@
                 th:text="${entry.value}" ></option>
     </select>
                 
-    <span th:if="${#maps.isEmpty(field.options)}" class="indented-form-value" th:inline="text">
+    <span th:if="${#maps.isEmpty(field.options)}" class="indented-form-value"  >
         &lt;[[#{No_Records_Found_Enum}]]&gt;
     </span>
     
@@ -41,7 +41,7 @@
                 <span class="input-group-btn">
                     <button class="clear-foreign-key secondary button"
                             th:disabled="${field.readOnly}"
-                            type="button" th:inline="text"
+                            type="button"  
                             th:unless="${field.required}"
                             th:style="*{#strings.isEmpty(fields['__${field.name}__'].value) ? 'display:none' : ''}">
                         <i class="fa fa-times"></i>
@@ -49,7 +49,7 @@
 
                     <button class="to-one-lookup secondary button"
                             th:disabled="${field.readOnly}"
-                            type="button" th:inline="text"
+                            type="button"  
                             th:attr="data-select-url=@{${'/' + field.owningEntityClass + '/' + field.name + '/select'}(requestingEntityId=${entityForm.id}, sectionCrumbs=${entityForm.sectionCrumbs})},
                                  data-dynamic-field=${field.attributes['dynamicField']},
                                  data-confirm=${field.isConfirmEnabled},

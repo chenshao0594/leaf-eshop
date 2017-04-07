@@ -8,7 +8,7 @@
 	        <section id="left_column">
 	    
 	            <header>
-	                <h1 th:unless="${#strings.isEmpty(originalQuery)}" th:inline="text">
+	                <h1 th:unless="${#strings.isEmpty(originalQuery)}"  >
 	                    <span th:utext="#{search.results}">Search Results for</span> [[${originalQuery}]] ([[${result.startResult}]] - [[${result.endResult}]] <span th:utext="#{search.of}">of</span> [[${result.totalResults}]])
 	                </h1>
 	                <h1 th:if="${#strings.isEmpty(originalQuery)}">

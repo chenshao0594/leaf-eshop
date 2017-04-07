@@ -13,7 +13,7 @@
 
         <div class="errors" blc_admin:errors="*{*}" >
             <th:block th:if="${tabErrors}">
-                <div class="tabError" th:each="tab : ${tabErrors.entrySet()}" th:inline="text">
+                <div class="tabError" th:each="tab : ${tabErrors.entrySet()}"  >
                     <span th:if="${#lists.size(field.value) &gt; 1}" class="fieldError error" th:each="field : ${tab.value.entrySet()}">
                         <th:block th:utext="#{${field.key}}"></th:block>: <span th:each="message : ${field.value}">[[#{__${message}__}]]</span>
                     </span>
@@ -63,7 +63,7 @@
                          th:if="${tab.hasFieldOrListGrid()}"
                          th:class="'tab' + ${tabStat.count} + 'Tab entityFormTab' + ${tab.tabClass}"
                          th:classappend="${#ef.isTabActive(entityForm, tab)}? 'active'"
-                         th:inline="text">
+                          >
 
                         <th:block th:if="${tab.customTemplate != null}">
                             <div th:replace="${tab.customTemplate}"></div>

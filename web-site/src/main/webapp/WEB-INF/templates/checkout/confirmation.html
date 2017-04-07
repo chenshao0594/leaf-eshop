@@ -37,10 +37,10 @@
                 </td>
                 <td align="left">
                     <a th:unless="${@blSystemPropertiesService.resolveBooleanSystemProperty('solr.index.use.sku')}" th:href="@{*{product.url}}" th:utext="*{product.name}"></a>
-                    <a th:if="${@blSystemPropertiesService.resolveBooleanSystemProperty('solr.index.use.sku')} and *{sku.urlKey}" th:href="@{*{product.url} + *{sku.urlKey}}" th:inline="text">
+                    <a th:if="${@blSystemPropertiesService.resolveBooleanSystemProperty('solr.index.use.sku')} and *{sku.urlKey}" th:href="@{*{product.url} + *{sku.urlKey}}"  >
                        [[*{sku.name}]] <span th:each="optionValue : *{sku.productOptionValues}" th:utext="${optionValue.attributeValue}"></span>
                     </a>
-                    <a th:if="${@blSystemPropertiesService.resolveBooleanSystemProperty('solr.index.use.sku')} and !*{sku.urlKey}" th:href="@{*{product.url}}" th:inline="text">
+                    <a th:if="${@blSystemPropertiesService.resolveBooleanSystemProperty('solr.index.use.sku')} and !*{sku.urlKey}" th:href="@{*{product.url}}"  >
                        [[*{sku.name}]] <span th:each="optionValue : *{sku.productOptionValues}" th:utext="${optionValue.attributeValue}"></span>
                     </a>
                     <br/>
@@ -123,7 +123,7 @@
             </div>
         </div>
         
-        <div class="fulfillment_option" th:object="${order.fulfillmentGroups[0]}" th:inline="text" th:unless="${#lists.size(order.fulfillmentGroups) > 1}">
+        <div class="fulfillment_option" th:object="${order.fulfillmentGroups[0]}"   th:unless="${#lists.size(order.fulfillmentGroups) > 1}">
            <div th:unless="*{type?.type == 'GIFT_CARD' or type?.type == 'DIGITAL' or type?.type == 'PHYSICAL_PICKUP'}"> 
                <div class="left_content">
                     <address>
@@ -148,7 +148,7 @@
 
         <div class="clearfix"></div>
 
-        <div class="payment_method" th:each="payment : ${order.payments}" th:object="${payment}" th:inline="text">
+        <div class="payment_method" th:each="payment : ${order.payments}" th:object="${payment}"  >
             <div th:if="${payment.active}" class="left_content">
                 <h3><span th:utext="#{confirmation.payment.method}">Payment Method</span></h3>
                 Payment type: [[*{type.friendlyType}]]<br/>

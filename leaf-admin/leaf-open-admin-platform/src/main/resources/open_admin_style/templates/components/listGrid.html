@@ -25,7 +25,7 @@
                     </th>
                     <th th:each="headerField : ${listGrid.headerFields}"
                         th:if="${headerField.isVisible}"
-                        th:inline="text"
+                         
                         th:classappend="${#strings.isEmpty(headerField.columnWidth) ? '' : 'explicit-size'}"
                         th:attr="data-columnwidth=${#strings.isEmpty(headerField.columnWidth) ? '' : headerField.columnWidth}"
                         th:style="${(#strings.isEmpty(headerField.columnWidth) ? '' : 'width: '+headerField.columnWidth+';')}"
@@ -244,8 +244,8 @@
         </table>
     </div>
 
-    <div class="listgrid-table-footer" th:inline="text">
-        <span class="listgrid-table-footer-message" th:inline="text">
+    <div class="listgrid-table-footer"  >
+        <span class="listgrid-table-footer-message"  >
             <span class="low-index" th:if="${listGrid.records}" th:text="${listGrid.startIndex + 1}"></span>
             <span class="low-index" th:unless="${listGrid.records}">0</span>
             -
@@ -256,7 +256,7 @@
         </span>
     </div>
 
-    <span class="listgrid-table-spinner-container" style="display:none;" th:inline="text">
+    <span class="listgrid-table-spinner-container" style="display:none;"  >
         <i class="listgrid-table-spinner fa-pulse fa fa-spinner"></i>
     </span>
 </th:block>

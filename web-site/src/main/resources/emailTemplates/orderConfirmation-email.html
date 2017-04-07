@@ -112,7 +112,7 @@
                     <tr> <!-- Shipping information table - 1 Address -->
                         <td colspan="2">
                             <table width="100%" style="font: 12px/18px 'Oxygen', Helvetica, sans-serif; color: #655C5A">
-                                <tr th:object="${order.fulfillmentGroups[0]}" th:inline="text" th:unless="${#lists.size(order.fulfillmentGroups) > 1}">
+                                <tr th:object="${order.fulfillmentGroups[0]}"   th:unless="${#lists.size(order.fulfillmentGroups) > 1}">
                                     <div th:unless="*{type?.type == 'GIFT_CARD' or type?.type == 'DIGITAL' or type?.type == 'PHYSICAL_PICKUP'}">
                                         <td>
                                             <address>
@@ -189,7 +189,7 @@
                     <tr> <!-- Billing information table -->
                         <td colspan="2">
                             <table width="100%" style="font: 12px/18px 'Oxygen', Helvetica, sans-serif; color: #655C5A">
-                                <tr th:each="payment : ${order.payments}" th:object="${payment}" th:inline="text">
+                                <tr th:each="payment : ${order.payments}" th:object="${payment}"  >
                                     <td th:if="${payment.active}">
                                         <table style=" margin: 0 0 10px 0; width: 290px; padding: 10px 20px; font: 12px/18px 'Oxygen', Helvetica, sans-serif; color: #655C5A">
                                             <tr>

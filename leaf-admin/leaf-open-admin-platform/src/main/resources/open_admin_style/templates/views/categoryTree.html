@@ -7,7 +7,7 @@
         
         <div style="background-color: #F5F5F5;">
             <ul class="category-root">
-                <li th:each="category : ${parentCategories}" th:inline="text">
+                <li th:each="category : ${parentCategories}"  >
                     <a th:href="@{${'/' + sectionKey + '/' + category.id}}">
                         [[${category.name}]]
                     </a> 
@@ -19,7 +19,7 @@
         
         <div th:remove="all">
             <ul th:fragment="tree" th:unless="${#lists.isEmpty(category.childCategoryXrefs)}">
-                <li th:each="cxref : ${category.childCategoryXrefs}" th:inline="text">
+                <li th:each="cxref : ${category.childCategoryXrefs}"  >
                     <a th:href="@{${'/' + sectionKey + '/' + cxref.subCategory.id}}">
                         [[${cxref.subCategory.name}]]
                     </a> 
@@ -31,7 +31,7 @@
             </ul>
         </div>
         
-        <span class="listgrid-table-footer" th:inline="text">
+        <span class="listgrid-table-footer"  >
         </span>
     </div>
     

@@ -22,7 +22,7 @@
 
         <div th:if="${'SAVED' == sectionDTO.state.type
                         and !#fields.hasErrors('*')}"
-             th:inline="text" class="clearfix">
+               class="clearfix">
             <div class="group shipping-info-read-only">
                 <h3><span th:utext="#{cart.billingAddress}">Billing Address</span></h3>
                 <address th:if="*{address.phonePrimary !=null and address.phonePrimary.phoneNumber != null}">

@@ -5,7 +5,7 @@
             <input id="listgrid-search" type="search" name="table-search"
                    th:placeholder="#{Search_Placeholder(#{${listGrid.headerFields[0].friendlyName}}, #{${entityFriendlyName}})}" />
             <div class="listgrid-search-actions">
-                <button class="button primary search-button" th:inline="text" th:utext="#{Search}"></button>
+                <button class="button primary search-button"   th:utext="#{Search}"></button>
                 <div th:replace="components/listGridToolbar" ></div>
 
             </div>
@@ -14,7 +14,7 @@
 
     <div class="col6 filter-info" style="white-space: nowrap;">
         <!-- Filter information -->
-        <button type="button" class="button filter-button" th:inline="text" th:utext="#{Filter}" th:attr="data-hiddenid=${listGrid.jsonFieldName}"></button>
+        <button type="button" class="button filter-button"   th:utext="#{Filter}" th:attr="data-hiddenid=${listGrid.jsonFieldName}"></button>
 
         <div class="filter-builder-data" style="display: none;"
              th:attr="data-hiddenid=${listGrid.jsonFieldName},

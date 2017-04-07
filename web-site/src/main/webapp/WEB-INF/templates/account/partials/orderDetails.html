@@ -57,7 +57,7 @@
                 <h3>Shipment<span th:if="*{status}" th:utext="' : ' + *{status}"></span></h3>
                 <div class="details">
                     <div class="shipping-information">
-                        <div class="fulfillment-group-address" th:inline="text">
+                        <div class="fulfillment-group-address"  >
                             <h4>Shipping Address</h4>
                             <address th:if="*{address.phonePrimary != null}">
                                 [[*{address.firstName}]]&nbsp;[[*{address.lastName}]]<br/>
@@ -105,7 +105,7 @@
         <li class="payment-information">
             <h3>Payment Information</h3>
             <div class="details">
-                <div class="payment-details" th:each="payment : ${order.payments}" th:object="${payment}" th:inline="text">
+                <div class="payment-details" th:each="payment : ${order.payments}" th:object="${payment}"  >
                     <div th:if="${payment.active}" class="payment-method">
                         <h4>Payment Method</h4>
                         Payment type: [[*{type.friendlyType}]]<br/>

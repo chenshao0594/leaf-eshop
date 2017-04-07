@@ -81,7 +81,7 @@ public class SecurityFilter extends GenericFilterBean {
             }
         }
 
-        // We only validate CSRF tokens on POST
+       /* // We only validate CSRF tokens on POST
         if (request.getMethod().equals("POST") && !excludedRequestFound) {
             String requestToken = request.getParameter(exploitProtectionService.getCsrfTokenParameter());
             try {
@@ -89,7 +89,7 @@ public class SecurityFilter extends GenericFilterBean {
             } catch (ServiceException e) {
                 throw new ServletException(e);
             }
-        }
+        }*/
 
         if (staleStateProtectionService.isEnabled()) {
             // We only validate tokens on POST

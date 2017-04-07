@@ -9,7 +9,7 @@
         <section id="left_column">
     
             <header>
-                <h1 th:inline="text">
+                <h1  >
                     <span th:utext="#{category.viewing}">Viewing</span> [[${category.name}]] ([[${result.startResult}]] - [[${result.endResult}]] <span th:utext="#{category.of}">of</span> [[${result.totalResults}]])
                 </h1>
                 <div th:replace="catalog/partials/productSortOptions"></div>

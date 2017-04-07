@@ -10,10 +10,10 @@
         </div>
 
         <div th:style="${#strings.toLowerCase(fieldType) == 'additional_foreign_key'} ? 'display: none;'">
-            <button class="listgrid-filter tiny radius dark button" th:inline="text">
+            <button class="listgrid-filter tiny radius dark button"  >
                 <i class="blc-icon-search"></i>[[#{Filter}]]
             </button>
-            <button class="listgrid-clear-filter tiny radius dark button" disabled="disabled" th:inline="text">
+            <button class="listgrid-clear-filter tiny radius dark button" disabled="disabled"  >
                 <i class="blc-icon-delete"></i>[[#{Filter_Clear}]]
             </button>
         </div>

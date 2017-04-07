@@ -16,7 +16,7 @@
 </div>
 
 <div class="content">
-    <div class="title" th:inline="text">
+    <div class="title"  >
         [[*{name}]] <span th:each="optionValue : *{productOptionValues}" th:utext="${optionValue.attributeValue}"></span>
     </div>
     <p th:utext="*{longDescription}"></p>

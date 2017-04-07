@@ -103,9 +103,9 @@
         <div class="field-label error"
             th:if="${field.dataWrapper.error != null}"
             th:style="${field.dataWrapper.error == null ? 'display: none;' : ''}"
-            th:inline="text">
+             >
             [[#{'ruleErrorTitle'}]] [[${field.dataWrapper.error}]]
-            <a href="#" class="button rule-reset right" th:inline="text">[[#{Reset_Rule}]] <i class="icon-undo"></i></a>
+            <a href="#" class="button rule-reset right"  >[[#{Reset_Rule}]] <i class="icon-undo"></i></a>
         </div>
 
         <div class="query-builder-rules-container-mvel"

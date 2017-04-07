@@ -12,7 +12,7 @@
         </span>
         
         <button class="to-one-lookup tiny radius dark button hover-cursor"
-            type="button" th:inline="text"
+            type="button"  
             th:attr="data-select-url=@{${'/' + headerField.owningEntityClass + '/' + headerField.name + '/select'}}">
             <i class="blc-icon-search"></i>&nbsp;[[#{Lookup_Key(#{${fieldFriendlyName}})}]]
         </button>

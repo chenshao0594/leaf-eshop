@@ -6,7 +6,7 @@
               novalidate="novalidate">
 
         <div th:if="${'SAVED' == sectionDTO.state.type and !#fields.hasErrors('*')}"
-             th:inline="text" class="clearfix">
+               class="clearfix">
 
             <div class="group shipping-info-read-only">
                 <h3><span th:utext="#{cart.shippingAddress}">Shipping Address</span></h3>
