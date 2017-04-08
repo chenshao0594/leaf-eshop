@@ -4,14 +4,18 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-4.1.xsd
         http://www.springframework.org/schema/task
-        http://www.springframework.org/schema/task/spring-task-4.1.xsd">
+        http://www.springframework.org/schema/task/spring-task-4.1.xsd
+        http://www.springframework.org/schema/tx 
+        http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
 
     <task:annotation-driven />
+    <tx:annotation-driven/>  
 
     <bean id="blConfiguration" class="org.broadleafcommerce.common.config.RuntimeEnvironmentPropertiesConfigurer" />
 
@@ -25,13 +29,13 @@
     </bean>
     
     <!-- Set up custom entity overrides. These are defined in core/src/main/resources -->
-    <bean id="blMergedEntityContexts" class="org.springframework.beans.factory.config.ListFactoryBean">
+   <!--  <bean id="blMergedEntityContexts" class="org.springframework.beans.factory.config.ListFactoryBean">
         <property name="sourceList">
             <list>
                 <value>classpath:applicationContext-entity.xml</value>
             </list>
         </property>
-    </bean>
+    </bean> -->
     
     <!-- Delete this bean to enable caching - leaving it on for development is recommended -->
     <!-- as it will allow changes made in the admin or directly on the database to be reflected -->
@@ -248,6 +252,6 @@
     </bean>
 
     <bean id="blJsResources" parent="siteJsResourceRequestHandlerBase" />
-
-    <bean id="blCssResources" parent="siteCssResourceRequestHandlerBase" />
+    <bean id="blCssResources" parent="siteCssResourceRequestHandlerBase" />  
+      
 </beans>

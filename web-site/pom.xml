@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.smarteshop.ecommerce</groupId>
         <artifactId>ecommerce-website</artifactId>
-        <version>5.0</version>
+        <version>1.0.0</version>
     </parent>
     <artifactId>web-site</artifactId>
     <packaging>war</packaging>
@@ -19,7 +19,7 @@
     </properties>
     <build>
         <outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
-        <finalName>mycompany</finalName>
+        <finalName>eshop</finalName>
         <plugins>
             
             <!-- Generate the SSL keystore -->
@@ -74,30 +74,7 @@
         </dependency>
         <dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>leaf-open-admin-platform</artifactId>
-		</dependency>
-        <dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>leaf-admin-module</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>${project.groupId}</groupId>
-					<artifactId>leaf-framework</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>${project.groupId}</groupId>
-					<artifactId>leaf-open-admin-platform</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>leaf-contentmanagement-module</artifactId>
-			<exclusions><exclusion>
-					<groupId>${project.groupId}</groupId>
-					<artifactId>leaf-open-admin-platform</artifactId>
-				</exclusion>
-				</exclusions>
+			<artifactId>leaf-framework</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
