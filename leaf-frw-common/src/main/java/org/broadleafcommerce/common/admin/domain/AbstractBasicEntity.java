@@ -1,8 +1,9 @@
 package org.broadleafcommerce.common.admin.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
-import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 import org.joda.time.DateTime;
@@ -10,28 +11,22 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 @MappedSuperclass
-public class AbstractBasicEntity {
-
-	@Id
-	@Column(nullable=false, updatable=false)
-	private Long id;
-
+public class AbstractBasicEntity  implements Serializable {
 
 	@Basic
 	@Column(name = "creator_Id", nullable = false,  updatable = false)
-	private Long creatorId = (long) 0;
+	private Long creatorId = 0l;
 
 	@CreatedDate
-	@Column(nullable = false,  updatable = false)
+	@Column(name="creation_time",  updatable = false)
 	private DateTime creationTime = new DateTime();
-
 
 	@Basic
 	@Column(name = "updator_Id")
-	private Long updatorId =  (long) 0;
+	private Long updatorId = 0l;
 
 	@LastModifiedDate
-	@Column(nullable = false)
+	@Column(name="update_time")
 	private DateTime updateTime = new DateTime();
 
 	public Long getCreatorId() {
@@ -66,11 +61,4 @@ public class AbstractBasicEntity {
 		this.updateTime = updateTime;
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 }

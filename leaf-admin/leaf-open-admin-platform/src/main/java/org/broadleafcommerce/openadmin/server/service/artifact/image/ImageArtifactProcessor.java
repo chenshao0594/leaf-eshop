@@ -71,7 +71,7 @@ public class ImageArtifactProcessor implements ArtifactProcessor {
     }
 
     public ImageMetadata getImageMetadata(InputStream artifactStream) throws Exception {
-        ImageMetadata imageMetadata = new ImageMetadata();
+    	ImageMetadata imageMetadata = new ImageMetadata();
         ImageInputStream iis = ImageIO.createImageInputStream(artifactStream);
         Iterator<ImageReader> readers = ImageIO.getImageReaders(iis);
         if (readers.hasNext()) {

@@ -17,7 +17,25 @@
  */
 package org.broadleafcommerce.cms.file.domain;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.MapKeyColumn;
+import javax.persistence.Table;
+
 import org.broadleafcommerce.cms.field.type.StorageType;
+import org.broadleafcommerce.common.admin.domain.AbstractBasicEntity;
 import org.broadleafcommerce.common.admin.domain.AdminMainEntity;
 import org.broadleafcommerce.common.copy.CreateResponse;
 import org.broadleafcommerce.common.copy.MultiTenantCopyContext;
@@ -33,16 +51,13 @@ import org.broadleafcommerce.common.presentation.client.VisibilityEnum;
 import org.broadleafcommerce.common.presentation.override.AdminPresentationOverride;
 import org.broadleafcommerce.common.presentation.override.AdminPresentationOverrides;
 import org.broadleafcommerce.openadmin.audit.AdminAuditableListener;
-import org.hibernate.annotations.*;
+import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Index;
 import org.hibernate.annotations.Parameter;
-
-import javax.persistence.CascadeType;
-import javax.persistence.*;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by bpolster.
@@ -119,14 +134,14 @@ public class StaticAssetImpl implements StaticAsset, AdminMainEntity, StaticAsse
             translatable = true)
     protected String altText;
 
-    @Column(name = "MIME_TYPE")
+    @Column(name = "MIME_TYPE", updatable=false)
     @AdminPresentation(friendlyName = "StaticAssetImpl_Mime_Type",
             order = FieldOrder.MIME_TYPE,
             group = GroupName.File_Details,
             readOnly = true)
     protected String mimeType;
 
-    @Column(name = "FILE_SIZE")
+    @Column(name = "FILE_SIZE", updatable=false)
     @AdminPresentation(friendlyName = "StaticAssetImpl_File_Size_Bytes",
             order = FieldOrder.FILE_SIZE,
             group = GroupName.File_Details,

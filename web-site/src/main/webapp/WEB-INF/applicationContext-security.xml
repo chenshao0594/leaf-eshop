@@ -55,7 +55,7 @@
         <!-- Define the login form along with the success and failure handlers -->
         <sec:form-login login-page='/login'
             authentication-success-handler-ref="blAuthenticationSuccessHandler"
-            authentication-failure-handler-ref="blAuthenticationFailureHandler"
+            authentication-failure-handler-ref="blAdminAuthenticationFailureHandler"
             login-processing-url="/login_post.htm" 
         />
         
@@ -94,7 +94,7 @@
     </bean>
 
     <!-- Sets the login failure URL -->
-    <bean id="blAuthenticationFailureHandler" class="org.broadleafcommerce.common.security.BroadleafAuthenticationFailureHandler">
+    <bean id="blAdminAuthenticationFailureHandler" class="org.broadleafcommerce.openadmin.security.BroadleafAdminAuthenticationFailureHandler">
         <constructor-arg value="/login?error=true" />
         <property name="redirectStrategy" ref="blAuthenticationFailureRedirectStrategy" />
     </bean>

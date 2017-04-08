@@ -73,14 +73,37 @@
             <artifactId>web-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>leaf-framework</artifactId>
-        </dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>leaf-open-admin-platform</artifactId>
+		</dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>leaf-framework-web</artifactId>
-        </dependency>
-        <dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>leaf-admin-module</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>${project.groupId}</groupId>
+					<artifactId>leaf-framework</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>${project.groupId}</groupId>
+					<artifactId>leaf-open-admin-platform</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>leaf-contentmanagement-module</artifactId>
+			<exclusions><exclusion>
+					<groupId>${project.groupId}</groupId>
+					<artifactId>leaf-open-admin-platform</artifactId>
+				</exclusion>
+				</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>leaf-framework-web</artifactId>
+		</dependency>
+		<dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
         </dependency>
