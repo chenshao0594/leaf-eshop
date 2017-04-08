@@ -89,6 +89,7 @@ import javax.annotation.Resource;
 /**
  * @author apazzolini
  */
+@Transactional
 @Service("blOrderService")
 @ManagedResource(objectName="org.broadleafcommerce:name=OrderService", description="Order Service", currencyTimeLimit=15)
 public class OrderServiceImpl implements OrderService {

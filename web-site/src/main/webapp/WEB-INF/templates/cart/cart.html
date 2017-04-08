@@ -37,7 +37,7 @@
             <input type="submit" id="addPromo" name="addPromo" th:value="#{cart.applyDiscount}" class="small red" />
             <div th:each="promo : ${cart.addedOfferCodes}" th:object="${promo}" th:remove="tag">
                 <div class="promo"><span th:utext="*{offerCode}" th:remove="tag"></span>
- <a class="remove_promo" th:href="@{/cart/promo/remove(offerCodeId=*{id})}"><i class="icon-remove"></i></a></div>
+ 				<a class="remove_promo" th:href="@{/cart/promo/remove(offerCodeId=*{id})}"><i class="icon-remove"></i></a></div>
             </div>
             <div id="cart_promo_error" style="display: none;"></div>
         </form>
