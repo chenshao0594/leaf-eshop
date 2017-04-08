@@ -1,687 +1,577 @@
 <html>
-<div class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-header">
-        <h3 id="myModalLabel">
-                Add New Category
-        </h3>
-        
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    </div>
-    
-    <div class="modal-body">
-        
-    
+<div class="modal hide" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<h3 id="myModalLabel">Add New Category</h3>
+
+		<button type="button" class="close" data-dismiss="modal"
+			aria-hidden="true">&times;</button>
+	</div>
+
+	<div class="modal-body">
 
 
-    <div class="section-tabs">
 
-        <div class="errors" >
-            
-        </div>
 
-        <div class="entity-errors"></div>
-        <ul class="nav nav-tabs">
-            <li class="active"
-                role="presentation">
-                <a href="#tab1" class="first-tab">
-                    <span data-tabkey="General">General</span>
-                    <i class="fa-pulse fa fa-spinner" style="display: none;"></i>
-                </a>
-            </li>
-            
-            
-            
-            
-            <li role="presentation">
-                <a href="#tab6">
-                    <span data-tabkey="CategoryImpl_Products_Tab">Products</span>
-                    <i class="fa-pulse fa fa-spinner" style="display: none;"></i>
-                </a>
-            </li>
-        </ul>
-    </div>
+		<div class="section-tabs">
 
-    <div class="content-yield">
-        <div class="row">
-            <form class="entity-form modal-add-entity-form " method="POST"
-                      action="http://localhost:8080/admin/category/add"><input type="hidden" name="_csrf" value="f4d3f879-7b2a-42be-ae3d-c21b5c6396d6"/>
+			<div class="errors"></div>
 
-                <span style="display: none;" id="previewurl" data-href="/admin/sandbox/preview?ceilingEntity=org.broadleafcommerce.core.catalog.domain.Category&amp;id=&amp;directPreview=true"></span>
+			<div class="entity-errors"></div>
+			<ul class="nav nav-tabs">
+				<li class="active" role="presentation"><a href="#tab1"
+					class="first-tab"> <span data-tabkey="General">General</span> <i
+						class="fa-pulse fa fa-spinner" style="display: none;"></i>
+				</a></li>
 
-                
-                
 
-                <input type="hidden" id="ceilingEntityClassname" name="ceilingEntityClassname" value="org.broadleafcommerce.core.catalog.domain.Category" />
-                <input type="hidden" id="entityType" name="entityType" value="org.broadleafcommerce.core.catalog.domain.CategoryImpl" />
-                <input type="hidden" id="id" name="id" value="" />
-                <input type="hidden" id="sectionCrumbs" name="sectionCrumbs" value=""  />
-                <input type="hidden" id="mainEntityName" name="mainEntityName" value="" />
 
-                <div class="tabs-content">
-                    <div class="tab1Tab entityFormTab active"
-                          >
 
-                        
-                        
-                            <div class="col12">
-                                <div class="row">
+				<li role="presentation"><a href="#tab6"> <span
+						data-tabkey="CategoryImpl_Products_Tab">Products</span> <i
+						class="fa-pulse fa fa-spinner" style="display: none;"></i>
+				</a></li>
+			</ul>
+		</div>
 
-                                    
-                                        
-                                            <div class="fieldset-card field-group  inModal">
-    <a class="titlebar" href="#">
-        <div class="titlebar-title">
-            <span>General</span>
-            
-        </div>
+		<div class="content-yield">
+			<div class="row">
+				<form class="entity-form modal-add-entity-form " method="POST"
+					action="http://localhost:8080/admin/category/add">
+					<input type="hidden" name="_csrf"
+						value="f4d3f879-7b2a-42be-ae3d-c21b5c6396d6" /> <span
+						style="display: none;" id="previewurl"
+						data-href="/admin/sandbox/preview?ceilingEntity=org.broadleafcommerce.core.catalog.domain.Category&amp;id=&amp;directPreview=true"></span>
 
-        <div class="collapser">
-            
-            <span class="expanded" href="#">(hide)</span>
-        </div>
-    </a>
-    <div class="fieldset-card-content">
-        
-            
 
-    <div class="field-group" id="field-name">
 
-        
-            <label>
-    <span class="required">Name</span>
-    
 
-    
-</label>
-<div>
-    <input type="text" required="required" id="fields'name'.value" name="fields['name'].value" value=""/>
+					<input type="hidden" id="ceilingEntityClassname"
+						name="ceilingEntityClassname"
+						value="org.broadleafcommerce.core.catalog.domain.Category" /> <input
+						type="hidden" id="entityType" name="entityType"
+						value="org.broadleafcommerce.core.catalog.domain.CategoryImpl" />
+					<input type="hidden" id="id" name="id" value="" /> <input
+						type="hidden" id="sectionCrumbs" name="sectionCrumbs" value="" />
+					<input type="hidden" id="mainEntityName" name="mainEntityName"
+						value="" />
 
-    
+					<div class="tabs-content">
+						<div class="tab1Tab entityFormTab active">
+
+
+
+							<div class="col12">
+								<div class="row">
+
+
+
+									<div class="fieldset-card field-group  inModal">
+										<a class="titlebar" href="#">
+											<div class="titlebar-title">
+												<span>General</span>
+
+											</div>
+
+											<div class="collapser">
+
+												<span class="expanded" href="#">(hide)</span>
+											</div>
+										</a>
+										<div class="fieldset-card-content">
+
+
+
+											<div class="field-group" id="field-name">
+
+
+												<label> <span class="required">Name</span>
+
+
+
+												</label>
+												<div>
+													<input type="text" required="required"
+														id="fields'name'.value" name="fields['name'].value"
+														value="" />
+
+
+												</div>
+
+
+
+
+
+
+											</div>
+
+
+
+
+
+
+
+
+
+
+
+											<div class="field-group" id="field-longDescription">
+
+
+												<label> <span>Description</span>
+
+
+
+												</label>
+
+												<div class="redactor-field">
+
+
+
+													<textarea class="redactor"
+														name="fields['longDescription'].value"
+														data-select-asset-url="/admin/category/null/chooseAsset"
+														id="fields'longDescription'.value"></textarea>
+												</div>
+
+
+
+
+
+
+
+											</div>
+
+
+
+
+
+
+
+
+
+
+
+											<div class="field-group" id="field-overrideGeneratedUrl">
+
+
+												<label for="false"> <span>Override Generated
+														Url</span>
+
+
+												</label>
+
+												<div class="radio-container">
+													<input type="radio" class="radio"
+														id="overrideGeneratedUrl-true" value="true"
+														name="fields['overrideGeneratedUrl'].value" /> <label
+														for="overrideGeneratedUrl-true" class="radio-label">
+														<span>Yes</span>
+													</label> <input type="radio" class="radio"
+														id="overrideGeneratedUrl-false" value="false"
+														name="fields['overrideGeneratedUrl'].value"
+														checked="checked" /> <label
+														for="overrideGeneratedUrl-false" class="radio-label">
+														<span style="margin-right: 10px;">No</span>
+													</label>
+												</div>
+
+
+
+
+
+
+
+											</div>
+
+
+
+
+
+
+
+
+
+
+
+											<div class="field-group" id="field-defaultParentCategory">
+
+
+
+
+												<div class="additional-foreign-key-container twelve">
+													<input type="hidden" class="display-value-property"
+														value="__adminMainEntity" /> <input type="hidden"
+														class="value" id="fields'defaultParentCategory'.value"
+														name="fields['defaultParentCategory'].value" value="" />
+													<input type="hidden" class="hidden-display-value"
+														id="fields'defaultParentCategory'.displayValue"
+														name="fields['defaultParentCategory'].displayValue"
+														value="" /> <label> <span>CategoryImpl_defaultParentCategory</span>
+
+
+													</label>
+
+													<div class="foreign-key-value-container">
+
+
+
+
+														<div class="input-group">
+															<input class="display-value-none-selected form-control"
+																type="text" style="display: none;" readonly="readonly"
+																value="No value selected" /> <input
+																class="display-value read-only form-control" type="text"
+																value="" readonly="readonly" /> <span
+																class="input-group-btn">
+																<button class="clear-foreign-key secondary button"
+																	type="button" style="display: none">
+																	<i class="fa fa-times"></i>
+																</button>
+
+																<button class="to-one-lookup secondary button"
+																	type="button"
+																	data-select-url="/admin/org.broadleafcommerce.core.catalog.domain.CategoryImpl/defaultParentCategory/select?requestingEntityId=&amp;sectionCrumbs="
+																	data-confirm="false">
+																	<i class="blc-icon-search"></i>
+																</button>
+															</span>
+														</div>
+
+
+
+
+
+
+
+
+													</div>
+
+												</div>
+
+
+
+
+
+											</div>
+
+
+
+
+
+
+
+
+
+
+
+											<div class="field-group" id="field-url">
+
+
+												<label> <span>Url</span>
+
+
+
+												</label>
+												<div>
+													<input type="text" id="fields'url'.value"
+														name="fields['url'].value" value="" />
+
+
+												</div>
+
+
+
+
+
+
+											</div>
+
+
+
+
+
+
+
+
+
+										</div>
+									</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+								</div>
+							</div>
+							<div class="col12">
+
+								<div class="fieldset-card field-group  inModal">
+									<a class="titlebar" href="#">
+										<div class="titlebar-title">
+											<span>Active Date Range</span>
+
+										</div>
+
+										<div class="collapser">
+
+											<span class="expanded" href="#">(hide)</span>
+										</div>
+									</a>
+									<div class="fieldset-card-content">
+
+
+
+										<div class="field-group" id="field-activeStartDate">
+
+
+											<label for="2017.04.08 00:02:16"> <span>Active
+													Start Date</span>
+
+
+											</label>
+											<div>
+												<input class="datetimepicker" type="text" autocomplete="off"
+													id="fields'activeStartDate'.value"
+													name="fields['activeStartDate'].value"
+													value="2017.04.08 00:02:16" />
+											</div>
+
+
+
+
+
+
+
+										</div>
+
+
+
+
+
+
+
+
+
+
+
+										<div class="field-group" id="field-activeEndDate">
+
+
+											<label> <span>Active End Date</span>
+
+
+											</label>
+											<div>
+												<input class="datetimepicker" type="text" autocomplete="off"
+													id="fields'activeEndDate'.value"
+													name="fields['activeEndDate'].value" value="" />
+											</div>
+
+
+
+
+
+
+
+										</div>
+
+
+
+
+
+
+
+
+
+									</div>
+								</div>
+
+
+								<div class="fieldset-card field-group  inModal">
+									<a class="titlebar" href="#">
+										<div class="titlebar-title">
+											<span>Miscellaneous</span>
+
+										</div>
+
+										<div class="collapser">
+
+											<span class="expanded" href="#">(hide)</span>
+										</div>
+									</a>
+									<div class="fieldset-card-content">
+
+
+
+										<div class="field-group" id="field-externalId">
+
+
+											<label> <span>External ID</span> <a href="#"
+												class="tooltip"> <i class="fa fa-question-circle"></i> <span>
+														<img class="callout"
+														src="/admin/img/admin/tooltip-callout.gif" /> This field
+														is used to facilitate integrations with external systems.
+												</span>
+											</a>
+
+
+											</label>
+											<div>
+												<input type="text" id="fields'externalId'.value"
+													name="fields['externalId'].value" value="" />
+
+
+											</div>
+
+
+
+
+
+
+										</div>
+
+
+
+
+
+
+
+
+
+									</div>
+								</div>
+
+
+							</div>
+
+						</div>
+
+
+
+
+						<div class="tab6Tab entityFormTab">
+
+
+
+							<div class="col12">
+								<div class="row"></div>
+							</div>
+							<div class="col12">
+
+								<div class="fieldset-card field-group  inModal">
+									<a class="titlebar" href="#">
+										<div class="titlebar-title">
+											<span>Product Defaults</span>
+
+										</div>
+
+										<div class="collapser">
+
+											<span class="expanded" href="#">(hide)</span>
+										</div>
+									</a>
+									<div class="fieldset-card-content">
+
+
+
+										<div class="field-group" id="field-displayTemplate">
+
+
+											<label> <span>Display Template</span>
+
+
+
+											</label>
+											<div>
+												<input type="text" id="fields'displayTemplate'.value"
+													name="fields['displayTemplate'].value" value="" />
+
+
+											</div>
+										</div>
+										<div class="field-group" id="field-inventoryType">
+
+
+											<label> <span>CategoryImpl_Category_InventoryType</span>
+												<a href="#" class="tooltip"> <i
+													class="fa fa-question-circle"></i> <span> <img
+														class="callout" src="/admin/img/admin/tooltip-callout.gif" />
+														categoryInventoryTypeHelpText
+												</span>
+											</a>
+
+											</label> <select class="six" id="fields'inventoryType'.value"
+												name="fields['inventoryType'].value">
+												<option value="" selected="selected">No value
+													selected</option>
+												<option value="ALWAYS_AVAILABLE">Always Available</option>
+												<option value="BASIC">Basic</option>
+												<option value="CHECK_QUANTITY">Check Quantity</option>
+												<option value="NONE">None</option>
+												<option value="UNAVAILABLE">Unavailable</option>
+											</select>
+										</div>
+										<div class="field-group" id="field-fulfillmentType">
+
+
+											<label> <span>CategoryImpl_Category_FulfillmentType</span>
+												<a href="#" class="tooltip"> <i
+													class="fa fa-question-circle"></i> <span> <img
+														class="callout" src="/admin/img/admin/tooltip-callout.gif" />
+														categoryFulfillmentTypeHelpText
+												</span>
+											</a>
+
+											</label> <select class="six" id="fields'fulfillmentType'.value"
+												name="fields['fulfillmentType'].value">
+												<option value="" selected="selected">No value
+													selected</option>
+												<option value="DIGITAL">Digital</option>
+												<option value="GIFT_CARD">Gift Card</option>
+												<option value="PHYSICAL_PICKUP">Physical Pickup</option>
+												<option value="PHYSICAL_PICKUP_OR_SHIP">Physical
+													Pickup or Ship</option>
+												<option value="PHYSICAL_SHIP">Physical Ship</option>
+											</select>
+										</div>
+										<div class="field-group hidden" id="field-taxCode">
+
+
+											<label> <span>Tax Code</span> <a href="#"
+												class="tooltip"> <i class="fa fa-question-circle"></i> <span>
+														<img class="callout"
+														src="/admin/img/admin/tooltip-callout.gif" />
+														categoryTaxCodeHelpText
+												</span>
+											</a>
+
+											</label> <span> &lt;No values found for this enumeration&gt;
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="entity-form-actions">
+						<button class="button submit-button primary" type="submit">
+							Save</button>
+						<img src="/admin/img/admin/ajax-loader.gif" class="ajax-loader" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>
-
-
-        
-        
-
-        
-    </div>
-
-    
-
-
-
-
-
-
-        
-            
-
-    <div class="field-group" id="field-longDescription">
-
-        
-            <label >
-    <span>Description</span>
-
-
-    
-</label>
-
-<div class="redactor-field">
-
-    
-
-    <textarea class="redactor"
-              name="fields['longDescription'].value"
-              data-select-asset-url="/admin/category/null/chooseAsset" id="fields'longDescription'.value"></textarea>
-</div>
-
-
-
-        
-        
-
-        
-    </div>
-
-    
-
-
-
-
-
-
-        
-            
-
-    <div class="field-group" id="field-overrideGeneratedUrl">
-
-        
-            <label for="false" >
-    <span>Override Generated Url</span>
-
-
-</label>
-
-<div class="radio-container">
-    <input type="radio" class="radio" id="overrideGeneratedUrl-true" value="true" name="fields['overrideGeneratedUrl'].value"/>
-    <label for="overrideGeneratedUrl-true"   class="radio-label">
-        <span >Yes</span>
-    </label>
-
-    <input type="radio" class="radio" id="overrideGeneratedUrl-false" value="false" name="fields['overrideGeneratedUrl'].value" checked="checked"/>
-    <label for="overrideGeneratedUrl-false"   class="radio-label">
-        <span style="margin-right: 10px;" >No</span>
-    </label>
-</div>
-
-
-
-        
-        
-
-        
-    </div>
-
-    
-
-
-
-
-
-
-        
-            
-
-    <div class="field-group" id="field-defaultParentCategory">
-
-        
-            
-
-<div class="additional-foreign-key-container twelve">
-    <input type="hidden" class="display-value-property" value="__adminMainEntity"  />
-    <input type="hidden" class="value" id="fields'defaultParentCategory'.value" name="fields['defaultParentCategory'].value" value="" />
-    <input type="hidden" class="hidden-display-value" id="fields'defaultParentCategory'.displayValue" name="fields['defaultParentCategory'].displayValue" value="" />
-
-    <label >
-        <span>CategoryImpl_defaultParentCategory</span>
-
-
-    </label>
-
-    <div class="foreign-key-value-container">
-        
-        
-
-
-            <div class="input-group">
-                <input class="display-value-none-selected form-control" type="text" style="display: none;" readonly="readonly" value="No value selected" />
-                <input class="display-value read-only form-control" type="text" value="" readonly="readonly"/>
-                <span class="input-group-btn">
-                    <button class="clear-foreign-key secondary button"
-                            type="button"  
-                            style="display:none">
-                        <i class="fa fa-times"></i>
-                    </button>
-
-                    <button class="to-one-lookup secondary button"
-                            type="button" data-select-url="/admin/org.broadleafcommerce.core.catalog.domain.CategoryImpl/defaultParentCategory/select?requestingEntityId=&amp;sectionCrumbs=" data-confirm="false">
-                        <i class="blc-icon-search"></i>
-                    </button>
-                </span>
-            </div>
-
-
-
-        
-
-        
-
-        
-    </div>
-    
-</div>
-
-        
-        
-
-        
-    </div>
-
-    
-
-
-
-
-
-
-        
-            
-
-    <div class="field-group" id="field-url">
-
-        
-            <label>
-    <span>Url</span>
-    
-
-    
-</label>
-<div>
-    <input type="text" id="fields'url'.value" name="fields['url'].value" value=""/>
-
-    
-</div>
-
-
-        
-        
-
-        
-    </div>
-
-    
-
-
-
-
-
-
-        
-    </div>
-</div>
-                                        
-                                        
-                                    
-
-                                    
-                                        
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                </div>
-                            </div>
-                            <div class="col12">
-                                
-                                    <div class="fieldset-card field-group  inModal">
-    <a class="titlebar" href="#">
-        <div class="titlebar-title">
-            <span>Active Date Range</span>
-            
-        </div>
-
-        <div class="collapser">
-            
-            <span class="expanded" href="#">(hide)</span>
-        </div>
-    </a>
-    <div class="fieldset-card-content">
-        
-            
-
-    <div class="field-group" id="field-activeStartDate">
-
-        
-            <label for="2017.04.08 00:02:16">
-    <span>Active Start Date</span>
-
-
-</label>
-<div>
-    <input class="datetimepicker" type="text" autocomplete="off" id="fields'activeStartDate'.value" name="fields['activeStartDate'].value" value="2017.04.08 00:02:16"/>
-</div>
-
-
-
-        
-        
-
-        
-    </div>
-
-    
-
-
-
-
-
-
-        
-            
-
-    <div class="field-group" id="field-activeEndDate">
-
-        
-            <label>
-    <span>Active End Date</span>
-
-
-</label>
-<div>
-    <input class="datetimepicker" type="text" autocomplete="off" id="fields'activeEndDate'.value" name="fields['activeEndDate'].value" value=""/>
-</div>
-
-
-
-        
-        
-
-        
-    </div>
-
-    
-
-
-
-
-
-
-        
-    </div>
-</div>
-                                    
-                                
-                                    <div class="fieldset-card field-group  inModal">
-    <a class="titlebar" href="#">
-        <div class="titlebar-title">
-            <span>Miscellaneous</span>
-            
-        </div>
-
-        <div class="collapser">
-            
-            <span class="expanded" href="#">(hide)</span>
-        </div>
-    </a>
-    <div class="fieldset-card-content">
-        
-            
-
-    <div class="field-group" id="field-externalId">
-
-        
-            <label>
-    <span>External ID</span>
-    <a href="#" class="tooltip">
-    <i class="fa fa-question-circle"></i>
-    <span>
-        <img class="callout" src="/admin/img/admin/tooltip-callout.gif" />
-        This field is used to facilitate integrations with external systems.
-    </span>
-</a>
-
-    
-</label>
-<div>
-    <input type="text" id="fields'externalId'.value" name="fields['externalId'].value" value=""/>
-
-    
-</div>
-
-
-        
-        
-
-        
-    </div>
-
-    
-
-
-
-
-
-
-        
-    </div>
-</div>
-                                    
-                                
-                            </div>
-                        
-                    </div>
-                    
-                    
-                    
-                    
-                    <div class="tab6Tab entityFormTab"
-                          >
-
-                        
-                        
-                            <div class="col12">
-                                <div class="row">
-
-                                    
-
-                                    
-                                        
-                                    
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                </div>
-                            </div>
-                            <div class="col12">
-                                
-                                    <div class="fieldset-card field-group  inModal">
-    <a class="titlebar" href="#">
-        <div class="titlebar-title">
-            <span>Product Defaults</span>
-            
-        </div>
-
-        <div class="collapser">
-            
-            <span class="expanded" href="#">(hide)</span>
-        </div>
-    </a>
-    <div class="fieldset-card-content">
-        
-            
-
-    <div class="field-group" id="field-displayTemplate">
-
-        
-            <label>
-    <span>Display Template</span>
-    
-
-    
-</label>
-<div>
-    <input type="text" id="fields'displayTemplate'.value" name="fields['displayTemplate'].value" value=""/>
-
-    
-</div>
-
-
-        
-        
-
-        
-    </div>
-
-    
-
-
-
-
-
-
-        
-            
-
-    <div class="field-group" id="field-inventoryType">
-
-        
-            <label >
-    <span>CategoryImpl_Category_InventoryType</span>
-<a href="#" class="tooltip">
-    <i class="fa fa-question-circle"></i>
-    <span>
-        <img class="callout" src="/admin/img/admin/tooltip-callout.gif" />
-        categoryInventoryTypeHelpText
-    </span>
-</a>
-
-</label>
-
-
-    <select class="six" id="fields'inventoryType'.value" name="fields['inventoryType'].value">
-        <option value="" selected="selected">No value selected</option>
-        <option value="ALWAYS_AVAILABLE" >Always Available</option>
-        <option value="BASIC" >Basic</option>
-        <option value="CHECK_QUANTITY" >Check Quantity</option>
-        <option value="NONE" >None</option>
-        <option value="UNAVAILABLE" >Unavailable</option>
-    </select>
-
-
-
-
-
-
-
-
-        
-        
-
-        
-    </div>
-
-    
-
-
-
-
-
-
-        
-            
-
-    <div class="field-group" id="field-fulfillmentType">
-
-        
-            <label >
-    <span>CategoryImpl_Category_FulfillmentType</span>
-<a href="#" class="tooltip">
-    <i class="fa fa-question-circle"></i>
-    <span>
-        <img class="callout" src="/admin/img/admin/tooltip-callout.gif" />
-        categoryFulfillmentTypeHelpText
-    </span>
-</a>
-
-</label>
-
-
-    <select class="six" id="fields'fulfillmentType'.value" name="fields['fulfillmentType'].value">
-        <option value="" selected="selected">No value selected</option>
-        <option value="DIGITAL" >Digital</option>
-        <option value="GIFT_CARD" >Gift Card</option>
-        <option value="PHYSICAL_PICKUP" >Physical Pickup</option>
-        <option value="PHYSICAL_PICKUP_OR_SHIP" >Physical Pickup or Ship</option>
-        <option value="PHYSICAL_SHIP" >Physical Ship</option>
-    </select>
-
-
-
-
-
-
-
-
-        
-        
-
-        
-    </div>
-
-    
-
-
-
-
-
-
-        
-            
-
-    <div class="field-group hidden" id="field-taxCode">
-
-        
-            <label >
-    <span>Tax Code</span>
-<a href="#" class="tooltip">
-    <i class="fa fa-question-circle"></i>
-    <span>
-        <img class="callout" src="/admin/img/admin/tooltip-callout.gif" />
-        categoryTaxCodeHelpText
-    </span>
-</a>
-
-</label>
-
-
-
-
-
-<span  >
-    &lt;No values found for this enumeration&gt;
-</span>
-
-
-
-        
-        
-
-        
-    </div>
-
-    
-
-
-
-
-
-
-        
-    </div>
-</div>
-                                    
-                                
-                            </div>
-                        
-                    </div>
-                </div>
-                <div class="entity-form-actions">
-                    <button class="button submit-button primary"
-                            type="submit">
-                        Save
-                    </button>
-                    <img src="/admin/img/admin/ajax-loader.gif" class="ajax-loader" />
-                </div>
-            </form>
-        </div>
-    </div>
-
-
-
-
-
-    </div>
-    
-</div>
-
 </html>

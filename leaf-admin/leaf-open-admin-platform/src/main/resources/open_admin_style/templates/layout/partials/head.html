@@ -6,8 +6,11 @@
     <meta http-equiv="Content-Language" content="en-us" />
     <meta http-equiv="Content-Author" content="Broadleaf Commerce" />
     <meta name="viewport" content="width=device-width" />
-
+	<sec:csrfMetaTags />
     <title th:text="#{Admin_Title}" ></title>
+    
+     <meta name="_csrf" value="dummy" th:value="${_csrf.token}"/>
+    
     
     <!--[if IE 7]>
     <link rel="stylesheet" th:href="@{/css/font-awesome-ie7.min.css}" />

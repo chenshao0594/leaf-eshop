@@ -85,6 +85,9 @@ public abstract class AbstractAuditableListener {
     protected void setAuditData(Object entity, Object auditableObject, String dateField, String userField) throws Exception {
         if (entity.getClass().isAnnotationPresent(Entity.class)) {
             Field field = BLCFieldUtils.getSingleField(entity.getClass(), getAuditableFieldName());
+            if(field==null){
+            	return;
+            }
             field.setAccessible(true);
             if (field.isAnnotationPresent(Embedded.class)) {
                 Object auditable = field.get(entity);

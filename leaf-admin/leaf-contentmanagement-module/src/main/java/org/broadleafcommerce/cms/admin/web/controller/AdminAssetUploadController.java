@@ -17,6 +17,14 @@
  */
 package org.broadleafcommerce.cms.admin.web.controller;
 
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.broadleafcommerce.cms.file.domain.ImageStaticAssetImpl;
 import org.broadleafcommerce.cms.file.domain.StaticAsset;
 import org.broadleafcommerce.cms.file.service.StaticAssetService;
@@ -35,20 +43,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * AdminAssetUploadController handles uploading or selecting assets.
@@ -149,7 +150,7 @@ public class AdminAssetUploadController extends AdminAbstractController {
      * @return
      * @throws IOException
      */
-    @RequestMapping(value = "/uploadAsset", method = RequestMethod.POST)
+    @PostMapping(value = "/uploadAsset")
     public String upload(HttpServletRequest request, HttpServletResponse response, Model model,
                          @PathVariable Map<String, String> pathVars,
                          @RequestParam("file") MultipartFile file,

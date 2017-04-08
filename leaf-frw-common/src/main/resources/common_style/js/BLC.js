@@ -151,14 +151,14 @@ var BLC = (function($) {
 
         if (options.type.toUpperCase() == 'POST') {
             if (typeof options.data == 'string') {
-                if (options.data.indexOf('csrfToken') < 0) {
+                if (options.data.indexOf('_csrf') < 0) {
                     var csrfToken = getCsrfToken();
                     if (csrfToken != null) {
                         if (options.data.indexOf('=') > 0) {
                             options.data += "&";
                         }
                         
-                        options.data += "csrfToken=" + csrfToken;
+                        options.data += "_csrf=" + csrfToken;
                     }
                 }
                 if (options.data.indexOf('stateVersionToken') < 0) {
@@ -172,10 +172,10 @@ var BLC = (function($) {
                     }
                 }
             } else if (typeof options.data == 'object') {
-                if (options.data['csrfToken'] == null || options.data['csrfToken'] == '') {
+                if (options.data['_csrf'] == null || options.data['_csrf'] == '') {
                     var csrfToken = getCsrfToken();
                     if (csrfToken != null) {
-                        options.data['csrfToken'] = csrfToken;
+                        options.data['_csrf'] = csrfToken;
                     }
                 }
                 if (options.data['stateVersionToken'] == null || options.data['stateVersionToken'] == '') {
@@ -189,7 +189,7 @@ var BLC = (function($) {
                 var csrfToken = getCsrfToken();
                 options.data = {};
                 if (csrfToken) {
-                    options.data['csrfToken'] = csrfToken;
+                    options.data['_csrf'] = csrfToken;
                 }
                 var stateVersionToken = getStateVersionToken();
                 if (stateVersionToken) {
@@ -263,7 +263,7 @@ var BLC = (function($) {
     }
         
     function getCsrfToken() {
-        var csrfTokenInput = $('input[name="csrfToken"]');
+        var csrfTokenInput = $('input[name="_csrf"]');
         if (csrfTokenInput.length == 0) {
             return null;
         }
