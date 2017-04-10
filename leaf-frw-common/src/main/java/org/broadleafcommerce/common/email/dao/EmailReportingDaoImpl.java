@@ -63,7 +63,7 @@ public class EmailReportingDaoImpl implements EmailReportingDao {
 
     @SuppressWarnings("unchecked")
     public EmailTracking retrieveTracking(Long emailId) {
-        return (EmailTracking) em.find(entityConfiguration.lookupEntityClass("org.broadleafcommerce.common.email.domain.EmailTracking"), emailId);
+        return (EmailTracking) em.find(EmailTracking.class, emailId);
     }
 
     public void recordOpen(Long emailId, String userAgent) {

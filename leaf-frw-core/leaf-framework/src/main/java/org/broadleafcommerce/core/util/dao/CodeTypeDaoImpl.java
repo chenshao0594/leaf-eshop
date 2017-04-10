@@ -56,7 +56,7 @@ public class CodeTypeDaoImpl implements CodeTypeDao {
     }
 
     public CodeType readCodeTypeById(Long codeTypeId) {
-        return (CodeType) em.find(entityConfiguration.lookupEntityClass(CodeType.class.getName()), codeTypeId);
+        return (CodeType) em.find(CodeTypeImpl.class, codeTypeId);
     }
 
     @SuppressWarnings("unchecked")

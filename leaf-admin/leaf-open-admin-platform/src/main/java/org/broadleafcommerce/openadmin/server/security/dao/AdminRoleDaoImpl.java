@@ -17,15 +17,17 @@
  */
 package org.broadleafcommerce.openadmin.server.security.dao;
 
-import org.broadleafcommerce.common.persistence.EntityConfiguration;
-import org.broadleafcommerce.openadmin.server.security.domain.AdminRole;
-import org.springframework.stereotype.Repository;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import java.util.List;
+
+import org.broadleafcommerce.common.persistence.EntityConfiguration;
+import org.broadleafcommerce.openadmin.server.security.domain.AdminRole;
+import org.broadleafcommerce.openadmin.server.security.domain.AdminRoleImpl;
+import org.springframework.stereotype.Repository;
 
 /**
  * 
@@ -49,7 +51,7 @@ public class AdminRoleDaoImpl implements AdminRoleDao {
     }
 
     public AdminRole readAdminRoleById(Long id) {
-        return (AdminRole) em.find(entityConfiguration.lookupEntityClass("org.broadleafcommerce.openadmin.server.security.domain.AdminRole"), id);
+        return (AdminRole) em.find(AdminRoleImpl.class, id);
     }
 
     public AdminRole saveAdminRole(AdminRole role) {

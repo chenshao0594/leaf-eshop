@@ -17,16 +17,6 @@
  */
 package org.broadleafcommerce.openadmin.server.security.dao;
 
-import org.apache.commons.lang.ClassUtils;
-import org.broadleafcommerce.common.persistence.EntityConfiguration;
-import org.broadleafcommerce.openadmin.server.security.domain.AdminPermission;
-import org.broadleafcommerce.openadmin.server.security.domain.AdminPermissionImpl;
-import org.broadleafcommerce.openadmin.server.security.domain.AdminUser;
-import org.broadleafcommerce.openadmin.server.security.service.AdminSecurityService;
-import org.broadleafcommerce.openadmin.server.security.service.type.PermissionType;
-import org.hibernate.ejb.QueryHints;
-import org.springframework.stereotype.Repository;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -40,6 +30,16 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+
+import org.apache.commons.lang.ClassUtils;
+import org.broadleafcommerce.common.persistence.EntityConfiguration;
+import org.broadleafcommerce.openadmin.server.security.domain.AdminPermission;
+import org.broadleafcommerce.openadmin.server.security.domain.AdminPermissionImpl;
+import org.broadleafcommerce.openadmin.server.security.domain.AdminUser;
+import org.broadleafcommerce.openadmin.server.security.service.AdminSecurityService;
+import org.broadleafcommerce.openadmin.server.security.service.type.PermissionType;
+import org.hibernate.ejb.QueryHints;
+import org.springframework.stereotype.Repository;
 
 /**
  * 
@@ -63,7 +63,7 @@ public class AdminPermissionDaoImpl implements AdminPermissionDao {
     }
 
     public AdminPermission readAdminPermissionById(Long id) {
-        return (AdminPermission) em.find(entityConfiguration.lookupEntityClass("org.broadleafcommerce.openadmin.server.security.domain.AdminPermission"), id);
+        return (AdminPermission) em.find(AdminPermissionImpl.class, id);
     }
 
     @Override
