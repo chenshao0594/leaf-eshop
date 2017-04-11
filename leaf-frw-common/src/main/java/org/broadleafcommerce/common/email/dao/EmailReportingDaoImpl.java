@@ -50,9 +50,7 @@ public class EmailReportingDaoImpl implements EmailReportingDao {
         tracking.setDateSent(SystemTime.asDate());
         tracking.setEmailAddress(emailAddress);
         tracking.setType(type);
-
         em.persist(tracking);
-
         return tracking.getId();
     }
 

@@ -49,7 +49,6 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="BLC_SYSTEM_PROPERTY")
-@Inheritance(strategy = InheritanceType.JOINED)
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region="blStandardElements")
 @DirectCopyTransform({
         @DirectCopyTransformMember(templateTokens = DirectCopyTransformTypes.MULTITENANT_SITE),
