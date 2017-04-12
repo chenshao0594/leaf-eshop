@@ -29,8 +29,8 @@ public class SiteMapController extends BroadleafSiteMapController {
      * @param fileName
      * @return
      */
+	@ResponseBody
     @RequestMapping(value = { "/sitemap*.xml", "sitemap*.gz" })
-    @ResponseBody
     public FileSystemResource retrieveSiteMapIndex(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         return super.retrieveSiteMapFile(request, response);

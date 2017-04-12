@@ -52,7 +52,7 @@ import javax.annotation.Resource;
  * @author bpolster
  *
  */
-@Service("blSiteMapService")
+@Service()
 public class SiteMapServiceImpl implements SiteMapService {
 
     protected static final Log LOG = LogFactory.getLog(SiteMapServiceImpl.class);

@@ -18,17 +18,17 @@
 
 package org.broadleafcommerce.common.sitemap.controller;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.broadleafcommerce.common.sitemap.service.SiteMapService;
-import org.springframework.core.io.FileSystemResource;
-
 import java.io.File;
 import java.io.IOException;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.broadleafcommerce.common.sitemap.service.SiteMapService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
 
 /**
  * Controller to generate and retrieve site map files.
@@ -39,7 +39,7 @@ public class BroadleafSiteMapController {
 
     private static final Log LOG = LogFactory.getLog(BroadleafSiteMapController.class);
 
-    @Resource(name = "blSiteMapService")
+    @Autowired
     protected SiteMapService siteMapService;
 
     /**

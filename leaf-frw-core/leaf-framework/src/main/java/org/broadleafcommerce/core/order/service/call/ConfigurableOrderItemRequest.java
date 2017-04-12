@@ -23,7 +23,7 @@ import org.broadleafcommerce.core.catalog.domain.Product;
 
 import java.util.List;
 
-public class ConfigurableOrderItemRequest extends AddToCartItem {
+public class ConfigurableOrderItemRequest extends OrderItemRequestDTO {
 
     protected Product product;
     protected List<ConfigurableOrderItemRequest> productChoices;

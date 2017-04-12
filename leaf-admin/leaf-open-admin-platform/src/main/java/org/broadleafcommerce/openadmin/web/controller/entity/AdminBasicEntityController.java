@@ -155,7 +155,7 @@ public class AdminBasicEntityController extends AdminAbstractController {
      * @return the return view path
      * @throws Exception
      */
-    @GetMapping(value = "")
+    @GetMapping()
     public String viewEntityList(HttpServletRequest request, HttpServletResponse response, Model model,
             @PathVariable Map<String, String> pathVars,
             @RequestParam MultiValueMap<String, String> requestParams) throws Exception {
@@ -165,7 +165,6 @@ public class AdminBasicEntityController extends AdminAbstractController {
         PersistencePackageRequest ppr = getSectionPersistencePackageRequest(sectionClassName, requestParams, crumbs, pathVars);
         ClassMetadata cmd = service.getClassMetadata(ppr).getDynamicResultSet().getClassMetaData();
         DynamicResultSet drs =  service.getRecords(ppr).getDynamicResultSet();
-
         ListGrid listGrid = formService.buildMainListGrid(drs, cmd, sectionKey, crumbs);
         listGrid.setSelectType(ListGrid.SelectType.NONE);
 
