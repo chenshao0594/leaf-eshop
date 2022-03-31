@@ -13,7 +13,7 @@
 		<!-- WARNING: HSQLDB version 2.3.3 does not work, 2.3.2 is verified to 
 			work with Broadleaf -->
 		<spring.instrument.version>4.1.9.RELEASE</spring.instrument.version>
-		<spring.version>4.3.7.RELEASE</spring.version>
+		<spring.version>5.3.18</spring.version>
 		<spring.security.version>4.2.2.RELEASE</spring.security.version>
 		<hibernate.version>4.1.11.Final</hibernate.version>
 		<maven.source.plugin.version>2.4</maven.source.plugin.version>
